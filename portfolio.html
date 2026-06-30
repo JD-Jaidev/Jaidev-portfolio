@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaidev ~ S</title>
+    <meta name="description"
+        content="Professional portfolio of an AI/ML Engineer specializing in machine learning, deep learning, and data science.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+
+<body>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-[#1e1e2a]/50">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold tracking-tight">
+                <span class="text-[#7ec8e3]">Jaidev</span>
+                <span class="text-[#b39ddb]">S</span>
+            </a>
+            <ul id="nav-list" class="nav-bar hidden md:flex items-center gap-8"></ul>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-white hover:text-[#b39ddb] transition-colors"
+                aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#12121a] border-t border-[#1e1e2a] px-6 py-4">
+            <ul id="mobile-nav-list" class="flex flex-col gap-4"></ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen relative flex items-center pt-24 pb-16 px-6 overflow-hidden">
+            <div class="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center gap-12">
+                <div class="flex-1 z-10">
+                    <div
+                        class="inline-block px-4 py-2 rounded-full bg-[#1e1e2a] border border-[#7ec8e3]/20 text-[#7ec8e3] text-sm font-medium mb-6">
+                        <i class="fas fa-robot mr-2"></i> Aspiring AI/ML Engineer
+                    </div>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
+                        <span class="text-white">Building</span><br>
+                        <span class="text-gradient">Intelligent</span><br>
+                        <span class="text-white">Systems</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-[#a0a0b8] max-w-xl mb-8 leading-relaxed">
+                        Exploring new AI technologies and crafting machine learning models that solve real-world problems.
+                        Currently pursuing my undergraduate degree in ML specialization.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects"
+                            class="px-8 py-4 bg-gradient-to-r from-[#9c27b0] to-[#7ec8e3] text-white font-semibold rounded-full transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#9c27b0]/60 hover:-translate-y-1">
+                            <i class="fas fa-code mr-2"></i> View Projects
+                        </a>
+                        <a href="#contact"
+                            class="px-8 py-4 border border-[#1e1e2a] text-[#a0a0b8] font-semibold rounded-full transition-all duration-300 ease-out hover:border-[#b39ddb] hover:text-white hover:scale-105 hover:shadow-2xl hover:shadow-[#7ec8e3]/40 hover:-translate-y-1">
+                            <i class="fas fa-envelope mr-2"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profile Circle with animated orbits -->
+                <div class="profile-container flex-shrink-0">
+                    <div class="orbit-ring orbit-ring-3"></div>
+                    <div class="orbit-ring orbit-ring-2"></div>
+                    <div class="orbit-ring"></div>
+                    <div class="orbit-badge orbit-badge-1"><i class="fas fa-graduation-cap mr-1"></i> Student</div>
+                    <div class="orbit-badge orbit-badge-2"><i class="fas fa-brain mr-1"></i> AI Engineer</div>
+                    <div class="profile-circle">
+                        <img src="prof-img.png" alt="Profile photo of AI/ML Engineer"
+                            loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <!-- Background decoration -->
+            <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#9c27b0]/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-[#7ec8e3]/5 rounded-full blur-3xl"></div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 px-6 bg-[#0d0d16]">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-[#b39ddb] text-sm font-semibold tracking-widest uppercase">Expertise</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-3">Technical <span class="text-gradient">Skills</span>
+                    </h2>
+                    <p class="text-[#a0a0b8] mt-4 max-w-lg mx-auto">Core competencies in machine learning, deep
+                        learning, and data engineering.</p>
+                </div>
+                <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"></div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-[#f4a261] text-sm font-semibold tracking-widest uppercase">Portfolio</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-3">Featured <span class="text-gradient">Projects</span>
+                    </h2>
+                    <p class="text-[#a0a0b8] mt-4 max-w-lg mx-auto">Real-world applications built with cutting-edge
+                        AI/ML technologies.</p>
+                </div>
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-6 bg-[#0d0d16]">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-[#7ec8e3] text-sm font-semibold tracking-widest uppercase">Get in Touch</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-3">Let's <span class="text-gradient">Collaborate</span>
+                    </h2>
+                    <p class="text-[#a0a0b8] mt-4 max-w-lg mx-auto">Have a project in mind? Let's build something
+                        intelligent together.</p>
+                </div>
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" name="name" placeholder="Your Name" required class="form-input"
+                            aria-label="Your Name">
+                        <input type="email" name="email" placeholder="Your Email" required class="form-input"
+                            aria-label="Your Email">
+                    </div>
+                    <input type="text" name="subject" placeholder="Subject" class="form-input" aria-label="Subject">
+                    <textarea name="message" rows="5" placeholder="Your Message" required class="form-input resize-none"
+                        aria-label="Your Message"></textarea>
+                    <button type="submit"
+                        class="w-full px-8 py-4 bg-gradient-to-r from-[#9c27b0] to-[#7ec8e3] text-white font-semibold rounded-full transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#9c27b0]/60 hover:-translate-y-1">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+                <div id="form-success"
+                    class="hidden mt-6 p-4 bg-[#1e1e2a] border border-[#7ec8e3]/30 rounded-xl text-center text-[#7ec8e3]">
+                    <i class="fas fa-check-circle mr-2"></i> Message sent successfully! I'll get back to you soon.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-[#1e1e2a]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-[#a0a0b8] text-sm">
+                &copy; 2025 AI/ML Engineer. All rights reserved.
+            </div>
+            <div id="footer-social" class="flex gap-6"></div>
+        </div>
+    </footer>
+
+    <script src="portfolio.js"></script>
+</body>
+
+</html>
