@@ -1,4 +1,4 @@
-// ━━━ DATA LAYER ━━━
+// ━━━ DATA LAYER ━━
 const navItems = [
     { label: "Home", href: "#home" },
     { label: "Skills", href: "#skills" },
@@ -7,12 +7,12 @@ const navItems = [
 ];
 
 const skills = [
-    { name: "Python & Data Science", level: 72, color: "from-[#7ec8e3] to-[#4a90d9]" },
-    { name: "Machine Learning", level: 88, color: "from-[#b39ddb] to-[#9c27b0]" },
-    { name: "Deep Learning (TensorFlow/PyTorch)", level: 85, color: "from-[#f4a261] to-[#e76f51]" },
-    { name: "NLP & Computer Vision", level: 80, color: "from-[#9c27b0] to-[#7ec8e3]" },
-    { name: "Data Engineering & SQL", level: 78, color: "from-[#7ec8e3] to-[#b39ddb]" },
-    { name: "MLOps & Deployment", level: 72, color: "from-[#f4a261] to-[#9c27b0]" }
+    { name: "Python & Data Science", level: 52, color: "from-[#7ec8e3] to-[#4a90d9]" },
+    { name: "Machine Learning", level: 30, color: "from-[#b39ddb] to-[#9c27b0]" },
+    { name: "Deep Learning (TensorFlow/PyTorch)", level: 25, color: "from-[#f4a261] to-[#e76f51]" },
+    { name: "NLP & Computer Vision", level: 27, color: "from-[#9c27b0] to-[#7ec8e3]" },
+    { name: "Data Engineering & SQL", level: 40, color: "from-[#7ec8e3] to-[#b39ddb]" },
+    { name: "MLOps & Deployment", level: 37, color: "from-[#f4a261] to-[#9c27b0]" }
 ];
 
 const projects = [
@@ -40,10 +40,9 @@ const projects = [
 ];
 
 const socialLinks = [
-    { icon: "fab fa-github", href: "#", label: "GitHub" },
-    { icon: "fab fa-linkedin-in", href: "#", label: "LinkedIn" },
-    { icon: "fab fa-twitter", href: "#", label: "Twitter" },
-    { icon: "fab fa-medium-m", href: "#", label: "Medium" }
+    { icon: "fab fa-github", href: "https://github.com/JD-Jaidev/", label: "GitHub" },
+    { icon: "fab fa-linkedin-in", href: "https://linkedin.com/in/jaidev-s/", label: "LinkedIn" },
+    { icon: "fab fa-instagram", href: "#", label: "Instagram" },
 ];
 
 // ━━━ RENDER FUNCTIONS ━━━
