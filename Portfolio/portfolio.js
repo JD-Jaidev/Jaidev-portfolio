@@ -7,12 +7,13 @@ const navItems = [
 ];
 
 const skills = [
-    { name: "Python & Data Science (NumPy/Pandas)", level: 52, color: "from-[#7ec8e3] to-[#4a90d9]" },
+    { name: "Python & Data Science (NumPy/Pandas)", level: 64, color: "from-[#7ec8e3] to-[#4a90d9]" },
     { name: "Machine Learning (SciKit-Learn)", level: 28, color: "from-[#b39ddb] to-[#9c27b0]" },
     { name: "Deep Learning (TensorFlow/PyTorch)", level: 25, color: "from-[#f4a261] to-[#e76f51]" },
     { name: "NLP & Computer Vision", level: 27, color: "from-[#9c27b0] to-[#7ec8e3]" },
     { name: "Computer Networks & Operating systems", level: 30, color: "from-[#7ec8e3] to-[#b39ddb]" },
-    { name: "Version Control & IDEs", level: 73, color: "from-[#f4a261] to-[#9c27b0]" }
+    { name: "Version Control & IDEs", level: 73, color: "from-[#f4a261] to-[#9c27b0]" },
+    { name: "Workflow Automations (n8n/Zapier)", level: 23, color: "from-[#f4a261] to-[#9c27b0]" }
 ];
 
 const projects = [
