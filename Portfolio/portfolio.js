@@ -12,7 +12,7 @@ const skills = [
     { name: "Deep Learning (TensorFlow/PyTorch)", level: 25, color: "from-[#f4a261] to-[#e76f51]" },
     { name: "NLP & Computer Vision", level: 27, color: "from-[#9c27b0] to-[#7ec8e3]" },
     { name: "Data Engineering & SQL", level: 40, color: "from-[#7ec8e3] to-[#b39ddb]" },
-    { name: "MLOps & Deployment", level: 37, color: "from-[#f4a261] to-[#9c27b0]" }
+    { name: "Version Control & IDEs", level: 73, color: "from-[#f4a261] to-[#9c27b0]" }
 ];
 
 const projects = [
