@@ -36,14 +36,14 @@ const projects = [
         tags: ["Scikit-learn", "Streamlit", "AWS"],
         img: "https://picsum.photos/600/400?random=30",
         link: "#"
-    },
-    {
+    }
+    /*{
         title: "Multi-Agent Deep Research Assistant",
         desc: "An AI-powered multi-agent research assistant that automates web research, fact-checking, report writing, code generation, data analysis, and presentation creation using LLMs and Retrieval-Augmented Generation (RAG).",
         tags: ["Python", "LangChain", "RAG"],
         img: "https://picsum.photos/600/400?random=30",
         link: "#"
-    }
+    }*/
 ];
 
 const socialLinks = [
