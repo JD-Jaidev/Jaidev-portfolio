@@ -8,7 +8,7 @@ const navItems = [
 
 const skills = [
     { name: "Python & Data Science (NumPy/Pandas)", level: 52, color: "from-[#7ec8e3] to-[#4a90d9]" },
-    { name: "Machine Learning", level: 30, color: "from-[#b39ddb] to-[#9c27b0]" },
+    { name: "Machine Learning (SciKit-Learn)", level: 30, color: "from-[#b39ddb] to-[#9c27b0]" },
     { name: "Deep Learning (TensorFlow/PyTorch)", level: 25, color: "from-[#f4a261] to-[#e76f51]" },
     { name: "NLP & Computer Vision", level: 27, color: "from-[#9c27b0] to-[#7ec8e3]" },
     { name: "Data Engineering & SQL", level: 40, color: "from-[#7ec8e3] to-[#b39ddb]" },
