@@ -54,6 +54,34 @@ const projects = [
     }*/
 ];
 
+const journey = [
+    {
+        year: "2024",
+        title: "Started B.E. Computer Science",
+        desc: "Began my undergraduate journey in Computer Science Engineering."
+    },
+    {
+        year: "2025",
+        title: "Learned Python",
+        desc: "Mastered Python programming and built several projects."
+    },
+    {
+        year: "2025",
+        title: "Started DSA",
+        desc: "Solved Data Structures and Algorithms problems for interview preparation."
+    },
+    {
+        year: "2026",
+        title: "Gesture Recognition",
+        desc: "Developed a real-time computer vision project using OpenCV and MediaPipe."
+    },
+    {
+        year: "2026",
+        title: "Multi-Agent Research Assistant",
+        desc: "Designed an AI research assistant powered by multiple LLM agents and RAG."
+    }
+];
+
 const socialLinks = [
     { icon: "fab fa-github", href: "https://github.com/JD-Jaidev/", label: "GitHub" },
     { icon: "fab fa-linkedin-in", href: "https://linkedin.com/in/jaidev-s/", label: "LinkedIn" },
