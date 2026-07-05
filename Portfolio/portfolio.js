@@ -10,9 +10,9 @@ const skills = [
     { name: "Python & Data Science (NumPy/Pandas)", level: 64, color: "from-[#7ec8e3] to-[#4a90d9]" },
     { name: "Machine Learning (SciKit-Learn)", level: 28, color: "from-[#b39ddb] to-[#9c27b0]" },
     { name: "Deep Learning (TensorFlow/PyTorch)", level: 25, color: "from-[#f4a261] to-[#e76f51]" },
-    { name: "NLP & Computer Vision", level: 27, color: "from-[#9c27b0] to-[#7ec8e3]" },
+    { name: "NLP & Computer Vision (OpenCV)", level: 27, color: "from-[#9c27b0] to-[#7ec8e3]" },
     { name: "Computer Networks & Operating systems", level: 30, color: "from-[#7ec8e3] to-[#b39ddb]" },
-    { name: "Version Control & IDEs", level: 73, color: "from-[#f4a261] to-[#9c27b0]" },
+    { name: "Version Control & IDEs", level: 85, color: "from-[#f4a261] to-[#9c27b0]" },
     { name: "Workflow Automations (n8n/Zapier)", level: 23, color: "from-[#f4a261] to-[#9c27b0]" }
 ];
 
@@ -20,18 +20,18 @@ const projects = [
     {
         title: "DeepVision Classifier",
         desc: "Custom CNN architecture achieving 97% accuracy on medical imaging dataset with real-time inference pipeline.",
-        tags: ["PyTorch", "CNN", "Flask"],
+        tags: ["Python", "Google Colab", "MIT App Inventor"],
         img: "https://picsum.photos/600/400?random=10",
         link: "#"
     },
     {
         title: "NLP Sentiment Engine",
         desc: "Transformer-based sentiment analysis system processing 10K+ reviews/min with multi-language support.",
-        tags: ["BERT", "FastAPI", "Docker"],
+        tags: ["Python", "MySQL", "DBMS"],
         img: "https://picsum.photos/600/400?random=20",
         link: "#"
-    },
-    {
+    }
+    /*  {
         title: "AutoML Pipeline",
         desc: "End-to-end automated ML pipeline with feature engineering, model selection, and hyperparameter tuning.",
         tags: ["Scikit-learn", "Streamlit", "AWS"],
@@ -44,7 +44,14 @@ const projects = [
         tags: ["Python", "LangChain", "RAG"],
         img: "https://picsum.photos/600/400?random=30",
         link: "#"
-    }
+    },
+    {
+        title: "Multi-Agent Deep Research Assistant",
+        desc: "An AI-powered multi-agent research assistant that automates web research, fact-checking, report writing, code generation, data analysis, and presentation creation using LLMs and Retrieval-Augmented Generation (RAG).",
+        tags: ["Python", "LangChain", "RAG"],
+        img: "https://picsum.photos/600/400?random=30",
+        link: "#"
+    }*/
 ];
 
 const socialLinks = [
@@ -76,7 +83,7 @@ function renderSkills(items) {
 
 function renderProjects(items) {
     return items.map(p => `
-                <div class="project-card group relative">
+                <div class="project-card group relative w-[400px]">
                     <div class="relative overflow-hidden">
                         <img src="${p.img}" alt="${p.title}" loading="lazy" class="w-full h-52 object-cover">
                         <div class="project-overlay">
