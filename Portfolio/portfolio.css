@@ -250,61 +250,87 @@
             position: relative;
             top: auto;
             right: auto;
-            margin: 0 auto 40px;
-            width: 280px;
-            height: 280px;
+            margin: 40px auto 0;
+            width: 320px;
+            height: 320px;
+        }
+
+        .profile-circle,
+        .orbit-ring {
+            top: 50% !important;
+            left: 50% !important;
         }
 
         .profile-circle {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
         }
 
         .orbit-ring {
-            width: 280px;
-            height: 280px;
+            width: 320px;
+            height: 260px;
         }
 
         .orbit-ring-2 {
-            width: 240px;
-            height: 240px;
+            width: 250px;
+            height: 310px;
         }
 
-        .orbit-ring-3 {
-            width: 320px;
-            height: 320px;
+        /* Pulling badges inward for tablets */
+        .orbit-badge-1 {
+            top: 40px;
+            left: 70%;
+        }
+
+        .orbit-badge-2 {
+            bottom: 20px;
+            left: 25%;
         }
     }
 
     @media (max-width: 640px) {
         .profile-container {
-            width: 240px;
-            height: 240px;
+            width: 260px;
+            height: 260px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .profile-circle,
+        .orbit-ring {
+            top: 50% !important;
+            left: 50% !important;
         }
 
         .profile-circle {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
         }
 
         .orbit-ring {
-            width: 240px;
-            height: 240px;
+            width: 250px;
+            height: 210px;
         }
 
         .orbit-ring-2 {
             width: 200px;
-            height: 200px;
+            height: 250px;
         }
 
-        .orbit-ring-3 {
-            width: 280px;
-            height: 280px;
+        /* 🌟 Fixed Badge Positions for Mobile Screens 🌟 */
+        .orbit-badge-1 {
+            top: 25px;
+            left: 75%;
+            /* Positions 'Student' nicely on the top right quadrant */
+            transform: translate(-50%, 0) scale(0.9);
         }
 
-        .orbit-badge {
-            font-size: 10px;
-            padding: 4px 12px;
+        .orbit-badge-2 {
+            bottom: 25px;
+            /* Brings 'AI Engineer' up from the deep bottom offset */
+            left: 20%;
+            /* Positions it on the bottom left quadrant */
+            transform: translate(-50%, 0) scale(0.9);
         }
     }
 

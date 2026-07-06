@@ -3,6 +3,7 @@ const navItems = [
     { label: "Home", href: "#home" },
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
+    { label: "Journey", href: "#journey" },
     { label: "Contact", href: "#contact" }
 ];
 
@@ -54,31 +55,26 @@ const projects = [
     }*/
 ];
 
-const journey = [
+const journeyData = [
     {
-        year: "2024",
-        title: "Started B.E. Computer Science",
-        desc: "Began my undergraduate journey in Computer Science Engineering."
+        type: "Schooling",
+        institution: "High School (Class 12th)",
+        board: "CBSE Curriculum",
+        duration: "Completed",
+        icon: "fas fa-school",
+        color: "hover:border-[#7ec8e3]/40 hover:shadow-[#7ec8e3]/10",
+        badgeColor: "bg-[#7ec8e3]/10 text-[#7ec8e3] border-[#7ec8e3]/30",
+        details: "Built a solid academic foundation focusing closely on Science, Mathematics, and foundational Computer Science principles."
     },
     {
-        year: "2025",
-        title: "Learned Python",
-        desc: "Mastered Python programming and built several projects."
-    },
-    {
-        year: "2025",
-        title: "Started DSA",
-        desc: "Solved Data Structures and Algorithms problems for interview preparation."
-    },
-    {
-        year: "2026",
-        title: "Gesture Recognition",
-        desc: "Developed a real-time computer vision project using OpenCV and MediaPipe."
-    },
-    {
-        year: "2026",
-        title: "Multi-Agent Research Assistant",
-        desc: "Designed an AI research assistant powered by multiple LLM agents and RAG."
+        type: "Undergraduate",
+        institution: "Current UG College",
+        board: "B.E. Computer Science Engineering",
+        duration: "In Progress",
+        icon: "fas fa-user-graduate",
+        color: "hover:border-[#b4218b]/40 hover:shadow-[#b4218b]/10",
+        badgeColor: "bg-[#b4218b]/10 text-[#b39ddb] border-[#b4218b]/30",
+        details: "Actively specializing in Artificial Intelligence and Machine Learning. Developing smart backend tools, handling data management protocols, and exploring advanced algorithmic models."
     }
 ];
 
@@ -133,6 +129,26 @@ function renderProjects(items) {
             `).join("");
 }
 
+function renderJourney(items) {
+    return items.map(j => `
+        <div class="bg-[#12121a] border border-[#1e1e2a] rounded-2xl p-8 transition-all duration-400 transform hover:-translate-y-2 border-b-4 ${j.color} group relative overflow-hidden">
+            <div class="absolute -right-8 -top-8 w-24 h-24 bg-gradient-to-br from-[#b39ddb]/10 to-transparent blur-xl group-hover:scale-150 transition-transform duration-500"></div>
+            <div class="flex items-start justify-between mb-6">
+                <div class="w-14 h-14 rounded-xl bg-[#1e1e2a] flex items-center justify-center text-2xl text-[#7ec8e3] border border-[#1e1e2a] group-hover:text-white group-hover:bg-gradient-to-br group-hover:from-[#9c27b0] group-hover:to-[#7ec8e3] transition-all duration-300">
+                    <i class="${j.icon}"></i>
+                </div>
+                <span class="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full border ${j.badgeColor}">
+                    ${j.duration}
+                </span>
+            </div>
+            <span class="text-[#a0a0b8] text-xs font-bold uppercase tracking-widest block mb-1">${j.type}</span>
+            <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-[#7ec8e3] transition-all duration-300">${j.institution}</h3>
+            <p class="text-[#7ec8e3] font-medium text-sm mb-4">${j.board}</p>
+            <p class="text-[#a0a0b8] text-sm leading-relaxed">${j.details}</p>
+        </div>
+    `).join("");
+}
+
 function renderSocial(items) {
     return items.map(s => `
                 <a href="${s.href}" class="w-10 h-10 rounded-full bg-[#1e1e2a] flex items-center justify-center text-[#a0a0b8] hover:bg-[#9c27b0] hover:text-white transition-all duration-300" aria-label="${s.label}">
@@ -146,6 +162,7 @@ document.getElementById("nav-list").innerHTML = renderNav(navItems);
 document.getElementById("mobile-nav-list").innerHTML = renderNav(navItems);
 document.getElementById("skills-grid").innerHTML = renderSkills(skills);
 document.getElementById("projects-grid").innerHTML = renderProjects(projects);
+document.getElementById("journey-grid").innerHTML = renderJourney(journeyData);
 document.getElementById("footer-social").innerHTML = renderSocial(socialLinks);
 
 // ━━━ ANIMATE PROGRESS BARS ON SCROLL ━━━
