@@ -317,18 +317,18 @@
             height: 250px;
         }
 
-        /* 🌟 Fixed Badge Positions for Mobile Screens 🌟 */
+        /* Fixed Badge Positions for Mobile Screens */
         .orbit-badge-1 {
-            top: 25px;
-            left: 75%;
+            top: 15px;
+            left: 80%;
             /* Positions 'Student' nicely on the top right quadrant */
             transform: translate(-50%, 0) scale(0.9);
         }
 
         .orbit-badge-2 {
-            bottom: 25px;
+            bottom: 20px;
             /* Brings 'AI Engineer' up from the deep bottom offset */
-            left: 20%;
+            left: 15%;
             /* Positions it on the bottom left quadrant */
             transform: translate(-50%, 0) scale(0.9);
         }

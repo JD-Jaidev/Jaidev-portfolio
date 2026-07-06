@@ -58,7 +58,7 @@ const projects = [
 const journeyData = [
     {
         type: "Schooling",
-        institution: "High School (Class 12th)",
+        institution: "Ebenezer Marcus International School (Class 12th)",
         board: "CBSE Curriculum",
         duration: "Completed",
         icon: "fas fa-school",
@@ -68,8 +68,8 @@ const journeyData = [
     },
     {
         type: "Undergraduate",
-        institution: "Current UG College",
-        board: "B.E. Computer Science Engineering",
+        institution: "Chennai Institute of Technology",
+        board: "B.E. Computer Science Engineering (AI/ML)",
         duration: "In Progress",
         icon: "fas fa-user-graduate",
         color: "hover:border-[#b4218b]/40 hover:shadow-[#b4218b]/10",
