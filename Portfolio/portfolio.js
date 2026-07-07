@@ -19,15 +19,15 @@ const skills = [
 
 const projects = [
     {
-        title: "Stark – AI Study Companion",
+        title: "Stark - AI Study Companion",
         desc: "Stark is a lightweight, AI study companion designed to streamline student learning and productivity. Frontend developed in MIT App Inventor, the application seamlessly communicates with a dynamic backend hosted on Google Colab with custom API integrations.",
         tags: ["Python", "Google Colab", "MIT App Inventor"],
         img: "https://ebookmakerapi.com/blog/wp-content/uploads/2024/07/the-benefits-of-ai-powered-writing-assistants-ebook-creator-ai-1024x559.webp",
         link: "#"
     },
     {
-        title: "E-Commerce Database Management System",
-        desc: "A database-driven e-commerce management system using Python and MySQL to efficiently manage product information and customer interactions. The application connects Python with a MySQL database to display available products, allow users to select items, and retrieve product details in real time.",
+        title: "E - Commerce Database Management System",
+        desc: "A database-driven E-Commerce Management System using Python and MySQL to efficiently manage product information and customer interactions. The application connects Python with a MySQL database to display available products, allow users to select items, and retrieve product details in real time.",
         tags: ["Python", "MySQL", "DBMS"],
         img: "https://www.orbitechno.com/assets/images/animal/1736480292-1590826222.jpg",
         link: "#"
