@@ -1,4 +1,5 @@
 // ━━━ DATA LAYER ━━
+
 const navItems = [
     { label: "Home", href: "#home" },
     { label: "Skills", href: "#skills" },
@@ -6,6 +7,8 @@ const navItems = [
     { label: "Journey", href: "#journey" },
     { label: "Contact", href: "#contact" }
 ];
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
 
 const skills = [
     { name: "Python & Data Science (NumPy/Pandas)", level: 64, color: "from-[#7ec8e3] to-[#4a90d9]" },
@@ -16,6 +19,8 @@ const skills = [
     { name: "Version Control & IDEs", level: 85, color: "from-[#f4a261] to-[#9c27b0]" },
     { name: "Workflow Automations (n8n/Zapier)", level: 23, color: "from-[#f4a261] to-[#9c27b0]" }
 ];
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
 
 const projects = [
     {
@@ -41,6 +46,8 @@ const projects = [
     }*/
 ];
 
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
 const journeyData = [
     {
         type: "Schooling",
@@ -64,11 +71,29 @@ const journeyData = [
     }
 ];
 
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
 const socialLinks = [
     { icon: "fab fa-github", href: "https://github.com/JD-Jaidev/", label: "GitHub" },
     { icon: "fab fa-linkedin-in", href: "https://linkedin.com/in/jaidev-s/", label: "LinkedIn" },
     { icon: "fab fa-instagram", href: "#", label: "Instagram" },
 ];
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 400) {
+        backToTop.classList.add("show");
+    } else {
+        backToTop.classList.remove("show");
+    }
+
+});
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
 
 // ━━━ RENDER FUNCTIONS ━━━
 function renderNav(items) {
@@ -76,6 +101,8 @@ function renderNav(items) {
         `<li><a href= "${i.href}" class="nav-link text-[#a0a0b8] transition-colors duration-300 text-sm font-medium">${i.label}</a></li>`
     ).join("");
 }
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
 
 function renderSkills(items) {
     return items.map(s => `
@@ -90,6 +117,8 @@ function renderSkills(items) {
                 </div>
             `).join("");
 }
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
 
 function renderProjects(items) {
     return items.map(p => `
@@ -115,6 +144,8 @@ function renderProjects(items) {
             `).join("");
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
 function renderJourney(items) {
     return items.map(j => `
         <div class="bg-[#12121a] border border-[#1e1e2a] rounded-2xl p-8 transition-all duration-400 transform hover:-translate-y-2 border-b-4 ${j.color} group relative overflow-hidden">
@@ -135,6 +166,8 @@ function renderJourney(items) {
     `).join("");
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
 function renderSocial(items) {
     return items.map(s => `
                 <a href="${s.href}" class="w-10 h-10 rounded-full bg-[#1e1e2a] flex items-center justify-center text-[#a0a0b8] hover:bg-[#9c27b0] hover:text-white transition-all duration-300" aria-label="${s.label}">
@@ -143,7 +176,10 @@ function renderSocial(items) {
             `).join("");
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
 // ━━━ MOUNT ━━━
+
 document.getElementById("nav-list").innerHTML = renderNav(navItems);
 document.getElementById("mobile-nav-list").innerHTML = renderNav(navItems);
 document.getElementById("skills-grid").innerHTML = renderSkills(skills);
@@ -151,7 +187,10 @@ document.getElementById("projects-grid").innerHTML = renderProjects(projects);
 document.getElementById("journey-grid").innerHTML = renderJourney(journeyData);
 document.getElementById("footer-social").innerHTML = renderSocial(socialLinks);
 
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
 // ━━━ ANIMATE PROGRESS BARS ON SCROLL ━━━
+
 function animateProgressBars() {
     const bars = document.querySelectorAll('.progress-bar-fill');
     bars.forEach(bar => {
@@ -166,7 +205,10 @@ function animateProgressBars() {
 window.addEventListener('scroll', animateProgressBars);
 window.addEventListener('load', animateProgressBars);
 
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
 // ━━━ EVENT DELEGATION ━━━
+
 document.addEventListener("click", function (e) {
     // Smooth scroll for anchor links
     const link = e.target.closest("a[href^='#']");
@@ -192,7 +234,10 @@ document.addEventListener("click", function (e) {
     }
 });
 
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
 // ━━━ CONTACT FORM HANDLING ━━━
+
 document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
     const form = e.target;
@@ -213,3 +258,4 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
         }, 4000);
     }, 1500);
 });
+
