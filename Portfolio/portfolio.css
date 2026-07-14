@@ -40,7 +40,9 @@
         background: var(--accent-purple);
     }
 
+
     /* Profile circle container */
+
     .profile-container {
         position: absolute;
         top: 80px;
@@ -153,7 +155,9 @@
         }
     }
 
+
     /* Progress bars */
+
     .progress-bar-bg {
         background: var(--dark-border);
         border-radius: 10px;
@@ -168,7 +172,9 @@
         width: 0;
     }
 
+
     /* Project cards */
+
     .project-card {
         background: var(--dark-card);
         border: 1px solid var(--dark-border);
@@ -207,7 +213,9 @@
         transform: translateY(0);
     }
 
+
     /* Form */
+
     .form-input {
         background: var(--dark-card);
         border: 1px solid var(--dark-border);
@@ -228,7 +236,9 @@
         color: var(--text-secondary);
     }
 
+
     /* Glow effects */
+
     .glow-blue {
         box-shadow: 0 0 30px rgba(126, 200, 227, 0.1);
     }
@@ -244,7 +254,9 @@
         background-clip: text;
     }
 
+
     /* Responsive */
+
     @media (max-width: 1024px) {
         .profile-container {
             position: relative;
@@ -276,7 +288,9 @@
             height: 310px;
         }
 
+
         /* Pulling badges inward for tablets */
+
         .orbit-badge-1 {
             top: 40px;
             left: 70%;
@@ -317,24 +331,25 @@
             height: 250px;
         }
 
+
         /* Fixed Badge Positions for Mobile Screens */
+
         .orbit-badge-1 {
             top: 15px;
             left: 80%;
-            /* Positions 'Student' nicely on the top right quadrant */
             transform: translate(-50%, 0) scale(0.9);
         }
 
         .orbit-badge-2 {
             bottom: 20px;
-            /* Brings 'AI Engineer' up from the deep bottom offset */
             left: 15%;
-            /* Positions it on the bottom left quadrant */
             transform: translate(-50%, 0) scale(0.9);
         }
     }
 
+
     /* nav-bar */
+    
     .nav-link {
         position: relative;
         display: inline-block;
