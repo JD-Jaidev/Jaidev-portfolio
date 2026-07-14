@@ -40,6 +40,7 @@
         background: var(--accent-purple);
     }
 
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
 
     /* Profile circle container */
 
@@ -155,6 +156,7 @@
         }
     }
 
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
 
     /* Progress bars */
 
@@ -172,6 +174,7 @@
         width: 0;
     }
 
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
 
     /* Project cards */
 
@@ -213,6 +216,7 @@
         transform: translateY(0);
     }
 
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
 
     /* Form */
 
@@ -236,6 +240,7 @@
         color: var(--text-secondary);
     }
 
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
 
     /* Glow effects */
 
@@ -254,6 +259,7 @@
         background-clip: text;
     }
 
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
 
     /* Responsive */
 
@@ -345,11 +351,13 @@
             left: 15%;
             transform: translate(-50%, 0) scale(0.9);
         }
+
     }
 
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
 
     /* nav-bar */
-    
+
     .nav-link {
         position: relative;
         display: inline-block;
@@ -383,4 +391,170 @@
 
     .nav-link:hover::after {
         width: 100%;
+    }
+
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
+
+    /* Buttons Container */
+
+    .hero-buttons {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    .hero-btn {
+        width: 190px;
+        /* Smaller width */
+        height: 50px;
+        /* Same height */
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 999px;
+        font-weight: 600;
+        text-decoration: none;
+
+        flex-shrink: 0;
+    }
+
+    .hero-btn-inner {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 999px;
+        background: #0b0b14;
+        color: #a0a0b8;
+
+        transition: .3s;
+    }
+
+    .hero-btn:hover .hero-btn-inner {
+        color: white;
+    }
+
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
+
+    /* Tablets */
+
+    @media (max-width: 992px) {
+
+        .hero-buttons {
+            justify-content: center;
+        }
+
+        .hero-btn {
+            min-width: 200px;
+        }
+
+    }
+
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
+
+    /* Mobile */
+
+    @media (max-width:768px) {
+
+        .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-btn {
+            width: 230px;
+        }
+
+    }
+
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
+
+    /* Small phones */
+
+    @media (max-width: 480px) {
+
+        .hero-btn {
+            max-width: 280px;
+            padding: 14px 18px;
+            font-size: 15px;
+        }
+
+        .hero-btn i {
+            margin-right: 8px;
+        }
+
+    }
+
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
+
+    /* Very small phones */
+
+    @media (max-width: 360px) {
+
+        .hero-btn {
+            max-width: 250px;
+            font-size: 14px;
+            padding: 12px 16px;
+        }
+
+    }
+
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
+
+    /* Back To Top Button */
+
+    #backToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #9c27b0, #7ec8e3);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 22px;
+        z-index: 1000;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+
+        transition: all .35s ease;
+        box-shadow: 0 8px 25px rgba(126, 200, 227, .35);
+    }
+
+    #backToTop:hover {
+        transform: translateY(-5px) scale(1.08);
+        box-shadow: 0 12px 35px rgba(156, 39, 176, .45);
+    }
+
+    #backToTop.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
+
+    /* Mobile */
+
+    @media (max-width:768px) {
+
+        #backToTop {
+            width: 48px;
+            height: 48px;
+            right: 20px;
+            bottom: 20px;
+            font-size: 18px;
+        }
+
     }
