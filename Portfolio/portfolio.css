@@ -393,52 +393,50 @@
         width: 100%;
     }
 
+    /*------------------------------------------------------------------------------------------------------------------------------------*/
 
-/* ==========================
-   Mobile Slide Menu
-========================== */
+    /* Mobile Slide Menu */
 
-.mobile-menu{
-    position:fixed;
-    top:65px;          /* Height of navbar */
-    right:0;
-    width:250px;
-    height:calc(100vh - 72px);
+    .mobile-menu {
+        position: fixed;
+        top: 65px;
+        /* Height of navbar */
+        right: 0;
+        width: 250px;
+        height: calc(100vh - 72px);
 
-    background:#12121a;
+        background: #12121a;
 
-    transform:translateX(100%);
-    transition:transform .4s ease;
+        transform: translateX(100%);
+        transition: transform .4s ease;
 
-    z-index:999;
+        z-index: 999;
 
-    padding:30px;
+        padding: 30px;
 
-    overflow-y:auto;
-}
+        overflow-y: auto;
+    }
 
-.mobile-menu.active{
-    transform:translateX(0);
-}
+    .mobile-menu.active {
+        transform: translateX(0);
+    }
 
-.mobile-menu ul{
-    display:flex;
-    flex-direction:column;
-    gap:28px;
-}
+    .mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
 
-.mobile-menu a{
-    font-size:18px;
-    color:#a0a0b8;
-    transition:.3s;
-}
+    .mobile-menu a {
+        font-size: 18px;
+        color: #a0a0b8;
+        transition: .3s;
+    }
 
-.mobile-menu a:hover{
-    color:#fff;
-    transform:translateX(8px);
-}
-
-
+    .mobile-menu a:hover {
+        color: #fff;
+        transform: translateX(8px);
+    }
 
     /*------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -608,7 +606,7 @@
 
     /*------------------------------------------------------------------------------------------------------------------------------------*/
 
-    /* Remove Chrome Autofill Highlight forcing overide autofill*/ 
+    /* Remove Chrome Autofill Highlight forcing overide autofill*/
 
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
