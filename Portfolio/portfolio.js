@@ -217,11 +217,9 @@ document.addEventListener("click", function (e) {
         const target = document.querySelector(link.getAttribute("href"));
         if (target) {
             target.scrollIntoView({ behavior: "smooth" });
-            // Close mobile menu if open
+            // Close mobile menu
             const mobileMenu = document.getElementById("mobile-menu");
-            if (!mobileMenu.classList.contains("hidden")) {
-                mobileMenu.classList.add("hidden");
-            }
+            mobileMenu.classList.remove("active");
         }
     }
 
@@ -230,7 +228,7 @@ document.addEventListener("click", function (e) {
     if (menuBtn) {
         e.preventDefault();
         const mobileMenu = document.getElementById("mobile-menu");
-        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("active");
     }
 });
 
