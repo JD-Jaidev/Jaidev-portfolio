@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
     <!-- Sticky Navigation -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-[#1e1e2a]/50">
         <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -36,6 +36,7 @@
         </div>
     </header>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <main>
         <!-- Hero Section -->
@@ -56,35 +57,46 @@
                         problems.
                         Currently pursuing my Undergraduate degree in ML specialization.
                     </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#projects"
-                            class="px-8 py-4 bg-gradient-to-r from-[#9c27b0] to-[#7ec8e3] text-white font-semibold rounded-full transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#9c27b0]/60 hover:-translate-y-1">
-                            <i class="fas fa-code mr-2"></i> View Projects
-                        </a>
-                        <a href="#contact"
-                            class="px-8 py-4 border border-[#1e1e2a] text-[#a0a0b8] font-semibold rounded-full transition-all duration-300 ease-out hover:border-[#b39ddb] hover:text-white hover:scale-105 hover:shadow-2xl hover:shadow-[#7ec8e3]/40 hover:-translate-y-1">
-                            <i class="fas fa-envelope mr-2"></i> Contact Me
-                        </a>
-                    </div>
-                </div>
+                    <div class="hero-buttons flex flex-wrap gap-4">
+                        <div class="hero-buttons">
+                            <!-- View Projects -->
+                            <a id="projects-link" href="#projects"
+                                class="hero-btn bg-gradient-to-r from-[#9c27b0] to-[#7ec8e3] text-white font-semibold rounded-full transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#9c27b0]/60 hover:-translate-y-1">
+                                <i class="fas fa-code mr-2"></i>
+                                View Projects
+                            </a>
 
-                <!-- Profile Circle with animated orbits -->
-                <div class="profile-container flex-shrink-0">
-                    <div class="orbit-ring orbit-ring-3"></div>
-                    <div class="orbit-ring orbit-ring-2"></div>
-                    <div class="orbit-ring"></div>
-                    <div class="orbit-badge orbit-badge-1"><i class="fas fa-graduation-cap mr-1"></i> Student</div>
-                    <div class="orbit-badge orbit-badge-2"><i class="fas fa-brain mr-1"></i> AI Engineer</div>
-                    <div class="profile-circle">
-                        <img src="prof-img.png" alt="Profile photo of AI/ML Engineer" loading="lazy">
+                            <!-- Contact -->
+                            <a id="contact-link" href="#contact"
+                                class="hero-btn relative rounded-full p-[1.5px] bg-gradient-to-r from-[#9c27b0] to-[#7ec8e3] transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#7ec8e3]/40 hover:-translate-y-1">
+                                <span class="hero-btn-inner">
+                                    <i class="fas fa-envelope mr-2"></i>
+                                    Contact Me
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+                    <!-- Profile Circle with animated orbits -->
+                    <div class="profile-container flex-shrink-0">
+                        <div class="orbit-ring orbit-ring-3"></div>
+                        <div class="orbit-ring orbit-ring-2"></div>
+                        <div class="orbit-ring"></div>
+                        <div class="orbit-badge orbit-badge-1"><i class="fas fa-graduation-cap mr-1"></i> Student</div>
+                        <div class="orbit-badge orbit-badge-2"><i class="fas fa-brain mr-1"></i> AI Engineer</div>
+                        <div class="profile-circle">
+                            <img src="prof-img.png" alt="Profile photo of AI/ML Engineer" loading="lazy">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Background decoration -->
-            <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#9c27b0]/5 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-[#7ec8e3]/5 rounded-full blur-3xl"></div>
+                <!-- Background decoration -->
+                <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#9c27b0]/5 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-[#7ec8e3]/5 rounded-full blur-3xl"></div>
         </section>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
         <!-- Skills Section -->
         <section id="skills" class="py-24 px-6 bg-[#0d0d16]">
@@ -100,6 +112,7 @@
             </div>
         </section>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
         <!-- Projects Section -->
         <section id="projects" class="py-24 px-6">
@@ -115,6 +128,7 @@
             </div>
         </section>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->        
 
         <!-- Journey Section -->
         <section id="journey" class="py-24 px-6 bg-[#0a0a0f]">
@@ -122,13 +136,15 @@
                 <div class="text-center mb-16">
                     <span class="text-[#b39ddb] text-sm font-semibold tracking-widest uppercase">Timeline</span>
                     <h2 class="text-4xl md:text-5xl font-bold mt-3">My <span class="text-gradient">Journey</span></h2>
-                    <p class="text-[#a0a0b8] mt-4 max-w-lg mx-auto">Tracking my shift from academic fundamentals to hands-on Artificial Intelligence and Software Engineering.</p>
+                    <p class="text-[#a0a0b8] mt-4 max-w-lg mx-auto">Tracking my shift from academic fundamentals to
+                        hands-on Artificial Intelligence and Software Engineering.</p>
                 </div>
                 <div id="journey-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"></div>
-                </div>
+            </div>
             </div>
         </section>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->        
 
         <!-- Contact Section -->
         <section id="contact" class="py-24 px-6 bg-[#0d0d16]">
@@ -164,7 +180,8 @@
         </section>
     </main>
 
-    
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
     <!-- Footer -->
     <footer class="py-12 px-6 border-t border-[#1e1e2a]">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -174,7 +191,11 @@
             <div id="footer-social" class="flex gap-6"></div>
         </div>
     </footer>
-
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+    <a href="#home" id="backToTop" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
     <script src="portfolio.js"></script>
 </body>
 
