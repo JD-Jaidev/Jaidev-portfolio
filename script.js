@@ -29,7 +29,7 @@ const projects = [
         title: "RAG based Multi Model PDF Analyzer",
         desc: "A multi-model AI-powered PDF analyzer that uses RAG to understand and answer questions from uploaded documents. It combines LangChain, FAISS, and multiple LLMs to provide accurate, context-aware responses through an interactive Streamlit interface.",
         tags: ["RAG & LLMs", "LangChain", "FAISS"],
-        img: "assests\\RAG.png",
+        img: "assets\\RAG.png",
         link: "https://github.com/JD-Jaidev/RAG-PDF-ANALYZER"
     },
 
@@ -37,7 +37,7 @@ const projects = [
         title: "AI Resume Analyzer with ATS score",
         desc: "A multi-model AI-powered PDF analyzer that uses RAG to understand and answer questions from uploaded documents. It combines LangChain, FAISS, and multiple LLMs to provide accurate, context-aware responses through an interactive Streamlit interface.",
         tags: ["Python" , "LangChain", "RAG & LLMs", "APIs"],
-        img: "assests\\RAG-RESUME.png",
+        img: "assets\\RAG-RESUME.png",
         link: "https://github.com/JD-Jaidev/AI-RESUME-ANALYZER"
     },
 
@@ -45,7 +45,7 @@ const projects = [
         title: "Stark - AI Study Companion",
         desc: "Stark is An AI-powered study assistant built with MIT App Inventor and an LLM API, designed to help students ask questions, understand concepts, and get instant AI-generated explanations through a simple mobile interface.",
         tags: ["Python", "APIs", "MIT App Inventor"],
-        img: "assests\\STARK.png",
+        img: "assets\\STARK.png",
         link: "#"
     },
 
@@ -53,7 +53,7 @@ const projects = [
         title: "Weather Application",
         desc: "A desktop weather application built with Python and PyQt5 that integrates a weather API to fetch and display real-time weather information. It features a clean GUI with location-based weather data, temperature, conditions, and other essential weather details.",
         tags: ["Python", "PyQt5", "API/JSON"],
-        img: "assests\\WEATHER.png",
+        img: "assets\\WEATHER.png",
         link: "https://github.com/JD-Jaidev/Weather-Application-Project"
     },
 
@@ -61,7 +61,7 @@ const projects = [
         title: "E - Commerce Database Management System",
         desc: "A database-driven E-Commerce Management System using Python and MySQL to efficiently manage product information and customer interactions. The application connects Python with a MySQL database to display available products, allow users to select items, and retrieve product details in real time.",
         tags: ["Python", "MySQL", "DBMS"],
-        img: "assests\\ECOM.png",
+        img: "assets\\ECOM.png",
         link: "https://github.com/JD-Jaidev/E-COMMERCE-DATABASE-MANAGEMENT"
     }    
 ];
