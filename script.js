@@ -26,6 +26,14 @@ const skills = [
 
 const projects = [
     {
+        title: "AI Playground",
+        desc: "AI Playground is a centralized platform that brings together multiple AI projects in one place, allowing users to easily explore and access different AI-powered applications through a unified, interactive interface.",
+        tags: ["HTML", "CSS", "JavaScript" , "Vercel"],
+        img: "assets\\AI-PLAYGROUND.png",
+        link: "https://github.com/JD-Jaidev/AI-PLAYGROUND"
+    },
+    
+    {
         title: "RAG based Multi Model PDF Analyzer",
         desc: "A multi-model AI-powered PDF analyzer that uses RAG to understand and answer questions from uploaded documents. It combines LangChain, FAISS, and multiple LLMs to provide accurate, context-aware responses through an interactive Streamlit interface.",
         tags: ["RAG & LLMs", "LangChain", "FAISS"],
