@@ -42,6 +42,14 @@ const projects = [
     },
 
     {
+        title: "AI Multi Model ChatBot",
+        desc: "An AI-powered multi-model chatbot built with Python, LangChain, OpenRouter API, and Streamlit, enabling users to interact with and switch between multiple LLMs through a unified conversational interface.",
+        tags: ["Python" , "LangChain", "OpenRouter", "NLP & APIs"],
+        img: "assets\\RAG-RESUME.png",
+        link: "#"
+    },
+
+    {
         title: "Stark - AI Study Companion",
         desc: "Stark is An AI-powered study assistant built with MIT App Inventor and an LLM API, designed to help students ask questions, understand concepts, and get instant AI-generated explanations through a simple mobile interface.",
         tags: ["Python", "APIs", "MIT App Inventor"],
