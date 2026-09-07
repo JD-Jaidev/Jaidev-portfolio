@@ -45,8 +45,8 @@ const projects = [
         title: "AI Multi Model ChatBot",
         desc: "An AI-powered multi-model chatbot built with Python, LangChain, OpenRouter API, and Streamlit, enabling users to interact with and switch between multiple LLMs through a unified conversational interface.",
         tags: ["Python" , "LangChain", "OpenRouter", "NLP & APIs"],
-        img: "assets\\RAG-RESUME.png",
-        link: "#"
+        img: "assets\\AI-CHATBOT.png",
+        link: "https://github.com/JD-Jaidev/AI-CHATBOT/"
     },
 
     {
