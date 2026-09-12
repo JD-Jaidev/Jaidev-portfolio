@@ -273,7 +273,7 @@ document.addEventListener("click", function (e) {
 // ━━━ CONTACT FORM HANDLING ━━━
 
 const contactForm = document.getElementById("contact-form");
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwtmoJ-nkn4kXSUpqxjLKarClfBds9o8oc4UCDsuUFVKYGmJEkZLIAom7S84hE-X2_FJg/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyZ0kUE0SurIEJXyeoRqPmUJC81vbkeibePb0_Lznd6Y1iEDT1K5zlG36-zS_qyPmUukQ/exec";
 if (contactForm) {
     contactForm.addEventListener("submit", async function (e) {
         e.preventDefault();
