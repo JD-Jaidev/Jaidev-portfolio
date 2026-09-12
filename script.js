@@ -28,11 +28,11 @@ const projects = [
     {
         title: "AI Playground",
         desc: "AI Playground is a centralized platform that brings together multiple AI projects in one place, allowing users to easily explore and access different AI-powered applications through a unified, interactive interface.",
-        tags: ["HTML", "CSS", "JavaScript" , "Vercel"],
+        tags: ["HTML", "CSS", "JavaScript", "Vercel"],
         img: "assets\\AI-PLAYGROUND.png",
         link: "https://github.com/JD-Jaidev/AI-PLAYGROUND"
     },
-    
+
     {
         title: "RAG based Multi Model PDF Analyzer",
         desc: "A multi-model AI-powered PDF analyzer that uses RAG to understand and answer questions from uploaded documents. It combines LangChain, FAISS, and multiple LLMs to provide accurate, context-aware responses through an interactive Streamlit interface.",
@@ -44,7 +44,7 @@ const projects = [
     {
         title: "AI Resume Analyzer with ATS score",
         desc: "A multi-model AI-powered PDF analyzer that uses RAG to understand and answer questions from uploaded documents. It combines LangChain, FAISS, and multiple LLMs to provide accurate, context-aware responses through an interactive Streamlit interface.",
-        tags: ["Python" , "LangChain", "RAG & LLMs", "APIs"],
+        tags: ["Python", "LangChain", "RAG & LLMs", "APIs"],
         img: "assets\\RAG-RESUME.png",
         link: "https://github.com/JD-Jaidev/AI-RESUME-ANALYZER"
     },
@@ -52,7 +52,7 @@ const projects = [
     {
         title: "AI Multi Model ChatBot",
         desc: "An AI-powered multi-model chatbot built with Python, LangChain, OpenRouter API, and Streamlit, enabling users to interact with and switch between multiple LLMs through a unified conversational interface.",
-        tags: ["Python" , "LangChain", "OpenRouter", "NLP & APIs"],
+        tags: ["Python", "LangChain", "OpenRouter", "NLP & APIs"],
         img: "assets\\AI-CHATBOT.png",
         link: "https://github.com/JD-Jaidev/AI-CHATBOT/"
     },
@@ -79,7 +79,7 @@ const projects = [
         tags: ["Python", "MySQL", "DBMS"],
         img: "assets\\ECOM.png",
         link: "https://github.com/JD-Jaidev/E-COMMERCE-DATABASE-MANAGEMENT"
-    }    
+    }
 ];
 
 /*------------------------------------------------------------------------------------------------------------------------------------*/
@@ -279,7 +279,6 @@ if (contactForm) {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
-
         const submitBtn = form.querySelector("button[type='submit']");
         const originalText = submitBtn.innerHTML;
 
@@ -294,7 +293,7 @@ if (contactForm) {
                 mode: "no-cors"
             });
 
-            // Clear the form
+            // Reset form
             form.reset();
 
             // Show success message
@@ -312,8 +311,7 @@ if (contactForm) {
             }, 4000);
         } catch (error) {
             console.error("Form submission error:", error);
-            submitBtn.innerHTML =
-                '<i class="fas fa-exclamation-circle"></i> Failed to Send';
+            submitBtn.innerHTML = "Failed to Send";
             setTimeout(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
