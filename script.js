@@ -272,24 +272,50 @@ document.addEventListener("click", function (e) {
 
 // ━━━ CONTACT FORM HANDLING ━━━
 
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    // Simulate sending
-    const submitBtn = form.querySelector("button[type='submit']");
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitBtn.disabled = true;
+const contactForm = document.getElementById("contact-form");
+const SCRIPT_URL = "YOUR_APPS_SCRIPT_EXEC_URL";
+if (contactForm) {
+    contactForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const submitBtn = form.querySelector("button[type='submit']");
+        const originalText = submitBtn.innerHTML;
 
-    setTimeout(() => {
-        form.reset();
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        document.getElementById("form-success").classList.remove("hidden");
-        setTimeout(() => {
-            document.getElementById("form-success").classList.add("hidden");
-        }, 4000);
-    }, 1500);
-});
+        // Show sending status
+        submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        try {
+            await fetch(SCRIPT_URL, {
+                method: "POST",
+                body: formData,
+                mode: "no-cors"
+            });
 
+            // Reset form
+            form.reset();
+
+            // Show success message
+            document.getElementById("form-success")
+                .classList.remove("hidden");
+
+            // Restore button
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+
+            // Hide success message after 4 seconds
+            setTimeout(() => {
+                document.getElementById("form-success")
+                    .classList.add("hidden");
+            }, 4000);
+        } catch (error) {
+            console.error("Form submission error:", error);
+            submitBtn.innerHTML = "Failed to Send";
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
+        }
+    });
+}
