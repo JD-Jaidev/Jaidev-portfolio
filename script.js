@@ -273,7 +273,7 @@ document.addEventListener("click", function (e) {
 // ━━━ CONTACT FORM HANDLING ━━━
 
 const contactForm = document.getElementById("contact-form");
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyZ0kUE0SurIEJXyeoRqPmUJC81vbkeibePb0_Lznd6Y1iEDT1K5zlG36-zS_qyPmUukQ/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyAoMHgn1PZ3oeGgLQCKaLz-cS05PTm-WOcUiOFuTmtTHzzOMJdL5eKyi-dmvPR6ESQBA/exec";
 if (contactForm) {
     contactForm.addEventListener("submit", async function (e) {
         e.preventDefault();
@@ -293,7 +293,7 @@ if (contactForm) {
                 mode: "no-cors"
             });
 
-            // Reset form
+            // Clear the form
             form.reset();
 
             // Show success message
@@ -311,7 +311,8 @@ if (contactForm) {
             }, 4000);
         } catch (error) {
             console.error("Form submission error:", error);
-            submitBtn.innerHTML = "Failed to Send";
+            submitBtn.innerHTML =
+                '<i class="fas fa-exclamation-circle"></i> Failed to Send';
             setTimeout(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
