@@ -12,12 +12,13 @@ const navItems = [
 /*------------------------------------------------------------------------------------------------------------------------------------*/
 
 const skills = [
-    { name: "Python & Data Science (NumPy/Pandas)", level: 64, color: "from-[#7ec8e3] to-[#4a90d9]" },
+    { name: "Python & Data Science (NumPy/Pandas)", level: 78, color: "from-[#7ec8e3] to-[#4a90d9]" },
     { name: "Machine Learning (SciKit-Learn)", level: 28, color: "from-[#b39ddb] to-[#9c27b0]" },
     { name: "Deep Learning (TensorFlow/PyTorch)", level: 20, color: "from-[#f4a261] to-[#e76f51]" },
     { name: "NLP & Computer Vision (OpenCV)", level: 27, color: "from-[#9c27b0] to-[#7ec8e3]" },
     { name: "Computer Networks & Operating systems", level: 30, color: "from-[#7ec8e3] to-[#b39ddb]" },
-    { name: "Version Control & IDEs", level: 63, color: "from-[#f4a261] to-[#9c27b0]" },
+    { name: "Version Control & IDEs", level: 88, color: "from-[#f4a261] to-[#9c27b0]" },
+    { name: "WebDev (HTML, CSS, JS)", level: 53, color: "from-[#7ec8e3] to-[#4a90d9]" },
     { name: "Workflow Automations (n8n/Zapier)", level: 23, color: "from-[#f4a261] to-[#9c27b0]" },
     { name: "PC Building & Assembly", level: 93, color: "from-[#b39ddb] to-[#9c27b0]" }
 ];
@@ -113,6 +114,7 @@ const socialLinks = [
     { icon: "fab fa-github", href: "https://github.com/JD-Jaidev/", label: "GitHub" },
     { icon: "fab fa-linkedin-in", href: "https://linkedin.com/in/jaidev-s/", label: "LinkedIn" },
     { icon: "fab fa-instagram", href: "https://www.instagram.com/itxz_jxda/", label: "Instagram" },
+    { icon: "fab fa-discord", href: "https://discord.com/users/1545065224598585451", label: "Discord" }
 ];
 
 /*------------------------------------------------------------------------------------------------------------------------------------*/
