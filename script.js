@@ -114,7 +114,8 @@ const socialLinks = [
     { icon: "fab fa-github", href: "https://github.com/JD-Jaidev/", label: "GitHub" },
     { icon: "fab fa-linkedin-in", href: "https://linkedin.com/in/jaidev-s/", label: "LinkedIn" },
     { icon: "fab fa-instagram", href: "https://www.instagram.com/itxz_jxda/", label: "Instagram" },
-    { icon: "fab fa-discord", href: "https://discord.com/users/1545065224598585451", label: "Discord" }
+    { icon: "fab fa-discord", href: "https://discord.com/users/1545065224598585451", label: "Discord" },
+    { icon: "fab fa-x-twitter", href: "https://x.com/Jaidevs10", label: "X" }
 ];
 
 /*------------------------------------------------------------------------------------------------------------------------------------*/
