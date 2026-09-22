@@ -59,6 +59,14 @@ const projects = [
     },
 
     {
+        title: "MFX - Multi Currency Converter & Market Trends",
+        desc: "A responsive web application for real-time currency conversion and exchange-rate trend analysis, featuring historical charts, reverse conversion, favorites, and recent conversions.",
+        tags: ["HTML, CSS, JS", "Frankfurter Exchange Rates API", "Vercel"],
+        img: "assets\\MFX.png",
+        link: "https://github.com/JD-Jaidev/MFX-Currency-Exchange"
+    },
+
+    {
         title: "Stark - AI Study Companion",
         desc: "Stark is An AI-powered study assistant built with MIT App Inventor and an LLM API, designed to help students ask questions, understand concepts, and get instant AI-generated explanations through a simple mobile interface.",
         tags: ["Python", "APIs", "MIT App Inventor"],
