@@ -39,7 +39,8 @@ const projects = [
         desc: "A multi-model AI-powered PDF analyzer that uses RAG to understand and answer questions from uploaded documents. It combines LangChain, FAISS, and multiple LLMs to provide accurate, context-aware responses through an interactive Streamlit interface.",
         tags: ["RAG & LLMs", "LangChain", "FAISS"],
         img: "assets\\RAG.png",
-        link: "https://github.com/JD-Jaidev/RAG-PDF-ANALYZER"
+        link: "https://github.com/JD-Jaidev/RAG-PDF-ANALYZER",
+        siteLink: "https://ai-rag-pdf-analyzer.streamlit.app/"
     },
 
     {
@@ -47,7 +48,8 @@ const projects = [
         desc: "A multi-model AI-powered PDF analyzer that uses RAG to understand and answer questions from uploaded documents. It combines LangChain, FAISS, and multiple LLMs to provide accurate, context-aware responses through an interactive Streamlit interface.",
         tags: ["Python", "LangChain", "RAG & LLMs", "APIs"],
         img: "assets\\RAG-RESUME.png",
-        link: "https://github.com/JD-Jaidev/AI-RESUME-ANALYZER"
+        link: "https://github.com/JD-Jaidev/AI-RESUME-ANALYZER",
+        siteLink: "https://multi-ai-resume-analyzer.streamlit.app/"
     },
 
     {
@@ -55,7 +57,8 @@ const projects = [
         desc: "An AI-powered multi-model chatbot built with Python, LangChain, OpenRouter API, and Streamlit, enabling users to interact with and switch between multiple LLMs through a unified conversational interface.",
         tags: ["Python", "LangChain", "OpenRouter", "NLP & APIs"],
         img: "assets\\AI-CHATBOT.png",
-        link: "https://github.com/JD-Jaidev/AI-CHATBOT/"
+        link: "https://github.com/JD-Jaidev/AI-CHATBOT/",
+        siteLink: "https://ai-multi-model-chatbot.streamlit.app/"
     },
 
     {
@@ -63,7 +66,8 @@ const projects = [
         desc: "A responsive web application for real-time currency conversion and exchange-rate trend analysis, featuring historical charts, reverse conversion, favorites, and recent conversions.",
         tags: ["HTML, CSS, JS", "Frankfurter Exchange Rates API", "Vercel"],
         img: "assets\\MFX.png",
-        link: "https://github.com/JD-Jaidev/MFX-Currency-Exchange"
+        link: "https://github.com/JD-Jaidev/MFX-Currency-Exchange",
+        siteLink: "https://mfx-currency-exchange.vercel.app/"
     },
 
     {
@@ -71,7 +75,8 @@ const projects = [
         desc: "Stark is An AI-powered study assistant built with MIT App Inventor and an LLM API, designed to help students ask questions, understand concepts, and get instant AI-generated explanations through a simple mobile interface.",
         tags: ["Python", "APIs", "MIT App Inventor"],
         img: "assets\\STARK.png",
-        link: "#"
+        link: "#",
+        siteLink: null
     },
 
     {
@@ -79,7 +84,8 @@ const projects = [
         desc: "A desktop weather application built with Python and PyQt5 that integrates a weather API to fetch and display real-time weather information. It features a clean GUI with location-based weather data, temperature, conditions, and other essential weather details.",
         tags: ["Python", "PyQt5", "API/JSON"],
         img: "assets\\WEATHER.png",
-        link: "https://github.com/JD-Jaidev/Weather-Application-Project"
+        link: "https://github.com/JD-Jaidev/Weather-Application-Project",
+        siteLink: null
     },
 
     {
@@ -87,7 +93,8 @@ const projects = [
         desc: "A database-driven E-Commerce Management System using Python and MySQL to efficiently manage product information and customer interactions. The application connects Python with a MySQL database to display available products, allow users to select items, and retrieve product details in real time.",
         tags: ["Python", "MySQL", "DBMS"],
         img: "assets\\ECOM.png",
-        link: "https://github.com/JD-Jaidev/E-COMMERCE-DATABASE-MANAGEMENT"
+        link: "https://github.com/JD-Jaidev/E-COMMERCE-DATABASE-MANAGEMENT",
+        siteLink: null
     }
 ];
 
@@ -169,26 +176,44 @@ function renderSkills(items) {
 
 function renderProjects(items) {
     return items.map(p => `
-                <div class="project-card group relative w-[400px]">
-                    <div class="relative overflow-hidden">
-                        <img src="${p.img}" alt="${p.title}" loading="lazy" class="w-full h-52 object-cover">
-                        <div class="project-overlay">
-                            <div class="flex flex-wrap gap-2">
-                                ${p.tags.map(t => `<span class="px-3 py-1 bg-[#9c27b0]/30 border border-[#9c27b0]/40 rounded-full text-xs text-[#b39ddb]">${t}</span>`).join("")}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">${p.title}</h3>
-                        <p class="text-[#a0a0b8] text-sm leading-relaxed">${p.desc}</p>
-                    </div>
-                    <div class="px-6 pb-6">
-                        <a href="${p.link}" class="inline-flex items-center gap-2 text-[#7ec8e3] text-sm font-medium hover:text-[#b39ddb] transition-colors">
-                            View Details <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
+        <div class="project-card group relative w-[400px]">
+            <div class="relative overflow-hidden">
+                <img src="${p.img}" alt="${p.title}" loading="lazy" class="w-full h-52 object-cover">
+
+                <div class="project-overlay">
+                    <div class="flex flex-wrap gap-2">
+                        ${p.tags.map(t => `
+                            <span class="px-3 py-1 bg-[#9c27b0]/30 border border-[#9c27b0]/40 rounded-full text-xs text-[#b39ddb]">
+                                ${t}
+                            </span>
+                        `).join("")}
                     </div>
                 </div>
-            `).join("");
+            </div>
+
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-2">${p.title}</h3>
+                <p class="text-[#a0a0b8] text-sm leading-relaxed">${p.desc}</p>
+            </div>
+
+           <div class="px-6 pb-6 flex items-center justify-evenly">
+                <a href="${p.link}"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 text-[#7ec8e3] text-sm font-medium hover:text-[#b39ddb] transition-colors">
+                    View Details
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+                ${p.siteLink ? `
+                <a href="${p.siteLink}"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 text-[#7ec8e3] text-sm font-medium hover:text-[#b39ddb] transition-colors">
+                    Visit Site
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+                ` : ""}
+            </div> 
+        </div>
+    `).join("");
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------------*/
