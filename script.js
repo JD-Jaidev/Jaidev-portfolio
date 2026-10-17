@@ -95,6 +95,14 @@ const projects = [
         img: "assets\\ECOM.png",
         link: "https://github.com/JD-Jaidev/E-COMMERCE-DATABASE-MANAGEMENT",
         siteLink: null
+    },
+    {
+        title: "To-Do List",
+        desc: "A sleek, interactive to-do list application built with HTML, CSS, JavaScript. Features real-time task management, completion tracking, and persistent cloud storage through a modern, responsive interface.",
+        tags: ["HTML", "CSS", "JavaScript"],
+        img: "assets\\TODO.png",
+        link: "https://github.com/JD-Jaidev/TO-DO-LIST",
+        siteLink: "https://todo-list-athera.vercel.app/"
     }
 ];
 
