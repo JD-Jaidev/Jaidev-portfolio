@@ -5,198 +5,330 @@
     <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaidev ~ S</title>
+    <title>Jaidev S — AI/ML Engineer & Developer</title>
     <meta name="description"
-        content="Professional portfolio of an AI/ML Engineer specializing in machine learning, deep learning, and data science.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+        content="Creative portfolio of Jaidev S, an Aspiring AI/ML Engineer specializing in Machine Learning, Deep Learning, RAG, and Intelligent Autonomous Systems.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Devicon & FontAwesome Icons -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS for utility scaffolding -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://emojifavicons.com/directhit">
 </head>
 
-<body>
-    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
-    <!-- Sticky Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-[#1e1e2a]/50">
-        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="text-2xl font-bold tracking-tight">
-                <span class="text-[#7ec8e3]">Jaidev</span>
-                <span class="text-[#b39ddb]">S</span>
+<body class="selection:bg-purple-500/30 selection:text-white">
+    <!-- Interactive Mouse Spotlight Aura -->
+    <div id="mouse-spotlight"></div>
+
+    <!-- ========================================================================================================= -->
+    <!-- Floating Squishy Capsule Navigation -->
+    <!-- ========================================================================================================= -->
+    <header id="main-header">
+        <nav class="glass-nav">
+            <!-- Squishy Brand Logo -->
+            <a href="#home" class="logo-container group" aria-label="Jaidev S Home">
+                <span class="text-white group-hover:text-[#38bdf8] transition-colors">Jaidev</span>
+                <span class="text-gradient">S</span>
+                <div class="logo-dot"></div>
             </a>
-            <ul id="nav-list" class="nav-bar hidden md:flex items-center gap-8"></ul>
-            <button id="mobile-menu-btn" class="md:hidden text-2xl text-white hover:text-[#b39ddb] transition-colors"
-                aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
+
+            <!-- Desktop Nav with Dynamic Squishy Pill Indicator -->
+            <div class="nav-wrapper hidden md:block">
+                <div id="nav-indicator" class="nav-pill-indicator"></div>
+                <ul id="nav-list" class="nav-bar"></ul>
+            </div>
+
+            <!-- CTA / Action Button (Desktop) -->
+            <div class="hidden md:flex items-center gap-3">
+                <a href="#contact" class="hero-btn hero-btn-primary !py-2 !px-5 !text-xs !shadow-none hover:!scale-105 squishy-hover">
+                    <i class="fas fa-paper-plane text-[10px]"></i>
+                    <span>Let's Talk</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+                <i class="fas fa-bars text-lg"></i>
             </button>
         </nav>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-[#12121a] border-l border-[#1e1e2a]">
-            <ul id="mobile-nav-list" class="flex flex-col gap-4"></ul>
+
+        <!-- Mobile Slide Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <ul id="mobile-nav-list" class="flex flex-col gap-2"></ul>
+            <div class="mt-6 pt-6 border-t border-white/10">
+                <a href="#contact" class="hero-btn hero-btn-primary w-full text-center text-sm py-3">
+                    <i class="fas fa-paper-plane mr-2"></i> Get in Touch
+                </a>
+            </div>
         </div>
     </header>
 
-    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
-
+    <!-- ========================================================================================================= -->
+    <!-- Main Content -->
+    <!-- ========================================================================================================= -->
     <main>
         <!-- Hero Section -->
-        <section id="home" class="min-h-screen relative flex items-center pt-24 pb-16 px-6 overflow-hidden">
-            <div class="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center gap-12">
-                <div class="flex-1 z-10">
-                    <div
-                        class="inline-block px-4 py-2 rounded-full bg-[#1e1e2a] border border-[#7ec8e3]/20 text-[#7ec8e3] text-sm font-medium mb-6">
-                        <i class="fas fa-robot mr-2"></i> Aspiring AI/ML Engineer
+        <section id="home" class="relative overflow-hidden pt-32 pb-16 px-4 sm:px-6">
+            <div class="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-10 relative z-10">
+                <!-- Text / Intro -->
+                <div class="flex-1 max-w-2xl text-center lg:text-left">
+                    <div class="hero-pill-badge">
+                        <i class="fas fa-sparkles text-xs"></i>
+                        <span>Aspiring AI/ML Engineer</span>
                     </div>
-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
+
+                    <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.08] mb-6">
                         <span class="text-white">Building</span><br>
                         <span class="text-gradient">Intelligent</span><br>
                         <span class="text-white">Systems</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-[#a0a0b8] max-w-xl mb-8 leading-relaxed">
-                        Exploring new AI technologies and crafting Machine Learning models that solve real-world
-                        problems.
-                        Currently pursuing my Undergraduate degree in ML specialization.
+
+                    <p class="text-base sm:text-lg md:text-xl text-[#94a3b8] max-w-xl mb-8 leading-relaxed font-normal mx-auto lg:mx-0">
+                        Exploring groundbreaking AI architectures and crafting Machine Learning models that solve real-world problems.
+                        Currently specializing in Machine Learning & Autonomous Agents.
                     </p>
-                    <div class="hero-buttons flex flex-wrap gap-4">
-                        <div class="hero-buttons">
-                            <!-- View Projects -->
-                            <a id="projects-link" href="#projects"
-                                class="hero-btn bg-gradient-to-r from-[#9c27b0] to-[#7ec8e3] text-white font-semibold rounded-[18px] transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#9c27b0]/60 hover:-translate-y-1">
-                                <i class="fas fa-code mr-2"></i>
-                                View Projects
-                            </a>
 
-                            <!-- Contact -->
-                            <a id="contact-link" href="#contact"
-                                class="hero-btn relative rounded-[18px] p-[1.5px] bg-gradient-to-r from-[#9c27b0] to-[#7ec8e3] transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#7ec8e3]/40 hover:-translate-y-1">
-                                <span class="hero-btn-inner rounded-[16.5px]">
-                                    <i class="fas fa-envelope mr-2"></i>
-                                    Contact Me
-                                </span>
-                            </a>
-                        </div>
+                    <div class="hero-buttons justify-center lg:justify-start">
+                        <a id="projects-link" href="#projects" class="hero-btn hero-btn-primary">
+                            <i class="fas fa-cubes text-sm"></i>
+                            <span>Explore Projects</span>
+                        </a>
+
+                        <a id="contact-link" href="#contact" class="hero-btn hero-btn-secondary">
+                            <i class="fas fa-envelope text-sm text-[#06b6d4]"></i>
+                            <span>Contact Me</span>
+                        </a>
                     </div>
 
-                    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
-
-                    <!-- Profile Circle with animated orbits -->
-                    <div class="profile-container flex-shrink-0">
-                        <div class="orbit-ring orbit-ring-3"></div>
-                        <div class="orbit-ring orbit-ring-2"></div>
-                        <div class="orbit-ring"></div>
-                        <div class="orbit-badge orbit-badge-1"><i class="fas fa-graduation-cap mr-1"></i> Student</div>
-                        <div class="orbit-badge orbit-badge-2"><i class="fas fa-brain mr-1"></i> AI Engineer</div>
-                        <div class="profile-circle">
-                            <img src="assets/prof-img.png" alt="Profile photo of AI/ML Engineer" loading="lazy">
+                    <!-- Quick stats / highlights -->
+                    <div class="mt-10 pt-8 border-t border-white/5 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-12">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white">9+</div>
+                            <div class="text-xs text-[#94a3b8] font-medium uppercase tracking-wider mt-1">Built Projects</div>
+                        </div>
+                        <div class="w-px h-8 bg-white/10 hidden sm:block"></div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#38bdf8]">AI/ML</div>
+                            <div class="text-xs text-[#94a3b8] font-medium uppercase tracking-wider mt-1">Specialization</div>
+                        </div>
+                        <div class="w-px h-8 bg-white/10 hidden sm:block"></div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#c084fc]">100%</div>
+                            <div class="text-xs text-[#94a3b8] font-medium uppercase tracking-wider mt-1">Dedicated</div>
                         </div>
                     </div>
                 </div>
-                <!-- Background decoration -->
-                <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#9c27b0]/5 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-[#7ec8e3]/5 rounded-full blur-3xl"></div>
+
+                <!-- Profile Circle with 3D Orbit Animations -->
+                <div class="profile-container flex-shrink-0" id="hero-profile-container">
+                    <div class="orbit-ring orbit-ring-3"></div>
+                    <div class="orbit-ring orbit-ring-2"></div>
+                    <div class="orbit-ring orbit-ring-1"></div>
+
+                    <!-- Floating Badges with Dedicated Float Wrappers -->
+                    <div class="orbit-badge-wrap orbit-badge-wrap-1">
+                        <div class="orbit-badge orbit-badge-1">
+                            <i class="fas fa-graduation-cap text-[#c084fc]"></i>
+                            <span>Student @ CIT</span>
+                        </div>
+                    </div>
+                    <div class="orbit-badge-wrap orbit-badge-wrap-2">
+                        <div class="orbit-badge orbit-badge-2">
+                            <i class="fas fa-brain text-[#38bdf8]"></i>
+                            <span>AI/ML Explorer</span>
+                        </div>
+                    </div>
+
+                    <!-- Avatar Orb -->
+                    <div class="profile-circle">
+                        <img src="assets/prof-img.png" alt="Profile photo of Jaidev S" loading="eager">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ambient Background Glow Orbs -->
+            <div class="absolute top-1/3 right-5 w-72 sm:w-96 h-72 sm:h-96 max-w-full bg-purple-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="absolute bottom-10 left-5 w-64 sm:w-80 h-64 sm:h-80 max-w-full bg-cyan-500/10 rounded-full blur-[80px] pointer-events-none"></div>
         </section>
 
-        <!---------------------------------------------------------------------------------------------------------------------------------------------------->
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-24 px-6 bg-[#0d0d16]">
+        <!-- ========================================================================================================= -->
+        <!-- Skills Section with Moving Infinite Ticker & Hover Color Glow -->
+        <!-- ========================================================================================================= -->
+        <section id="skills" class="py-24 px-4 sm:px-6 relative bg-[#07080f]/80 border-y border-white/[0.04] overflow-hidden">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <span class="text-[#b39ddb] text-sm font-semibold tracking-widest uppercase">Expertise</span>
-                    <h2 class="text-4xl md:text-5xl font-bold mt-3">Technical <span class="text-gradient">Skills</span>
+                <div class="text-center mb-8">
+                    <span class="text-[#38bdf8] text-xs font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full bg-[#06b6d4]/10 border border-[#06b6d4]/20 inline-block">
+                        Tech Arsenal & Stack
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black mt-4">
+                        Technical <span class="text-gradient">Skills</span>
                     </h2>
-                    <p class="text-[#a0a0b8] mt-4 max-w-lg mx-auto">Core competencies in Machine Learning, Deep
-                        Learning, and Data Engineering.</p>
+                    <p class="text-[#94a3b8] mt-3 max-w-xl mx-auto text-sm sm:text-base md:text-lg">
+                        Technologies, frameworks, and algorithmic libraries I utilize to engineer intelligent software and models.
+                    </p>
                 </div>
-                <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"></div>
+
+                <!-- INFINITE MOVING MARQUEE TICKER (Hover for Glowing Brand Colors) -->
+                <div class="skills-marquee-wrapper" id="skills-marquee-container" aria-label="Interactive Moving Skills Showcase">
+                    <!-- Row 1: Leftward moving track (rendered dynamically) -->
+                    <div class="marquee-row">
+                        <div id="marquee-track-1" class="marquee-track"></div>
+                    </div>
+                    <!-- Row 2: Rightward moving track (rendered dynamically) -->
+                    <div class="marquee-row">
+                        <div id="marquee-track-2" class="marquee-track-reverse"></div>
+                    </div>
+                </div>
+
+                <!-- Interactive Competency Metrics -->
+                <div class="mt-14 text-center mb-8">
+                    <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white flex items-center justify-center gap-3">
+                        <i class="fas fa-chart-line text-[#a855f7]"></i>
+                        <span>Core Competency Levels</span>
+                    </h3>
+                </div>
+                <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto"></div>
             </div>
         </section>
 
-        <!---------------------------------------------------------------------------------------------------------------------------------------------------->
-
+        <!-- ========================================================================================================= -->
         <!-- Projects Section -->
-        <section id="projects" class="py-24 px-6">
+        <!-- ========================================================================================================= -->
+        <section id="projects" class="py-24 px-4 sm:px-6 relative overflow-hidden">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <span class="text-[#f4a261] text-sm font-semibold tracking-widest uppercase">Portfolio</span>
-                    <h2 class="text-4xl md:text-5xl font-bold mt-3">Featured <span class="text-gradient">Projects</span>
+                <div class="text-center mb-10">
+                    <span class="text-[#f59e0b] text-xs font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/20 inline-block">
+                        Featured Creations
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black mt-4">
+                        Curated <span class="text-gradient">Projects</span>
                     </h2>
-                    <p class="text-[#a0a0b8] mt-4 max-w-lg mx-auto">Real-world applications built with cutting-edge
-                        AI/ML technologies.</p>
+                    <p class="text-[#94a3b8] mt-3 max-w-xl mx-auto text-sm sm:text-base md:text-lg">
+                        Real-world software, AI-powered applications, and RAG architectures engineered with modern tech stacks.
+                    </p>
                 </div>
-                <div id="projects-grid" class="flex flex-wrap justify-center gap-10"></div>
+
+                <!-- Filter Category Tabs -->
+                <div id="project-filters" class="filter-wrapper"></div>
+
+                <!-- Projects Grid -->
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
             </div>
         </section>
 
-        <!---------------------------------------------------------------------------------------------------------------------------------------------------->
-
+        <!-- ========================================================================================================= -->
         <!-- Journey Section -->
-        <section id="journey" class="py-24 px-6 bg-[#0a0a0f]">
+        <!-- ========================================================================================================= -->
+        <section id="journey" class="py-24 px-4 sm:px-6 relative bg-[#070810]/70 border-t border-white/[0.04] overflow-hidden">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <span class="text-[#b39ddb] text-sm font-semibold tracking-widest uppercase">Timeline</span>
-                    <h2 class="text-4xl md:text-5xl font-bold mt-3">My <span class="text-gradient">Journey</span></h2>
-                    <p class="text-[#a0a0b8] mt-4 max-w-lg mx-auto">Tracking my shift from academic fundamentals to
-                        hands-on Artificial Intelligence and Software Engineering.</p>
+                <div class="text-center mb-12">
+                    <span class="text-[#c084fc] text-xs font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full bg-[#c084fc]/10 border border-[#c084fc]/20 inline-block">
+                        Milestones & Experience
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black mt-4">
+                        My <span class="text-gradient">Journey</span>
+                    </h2>
+                    <p class="text-[#94a3b8] mt-3 max-w-xl mx-auto text-sm sm:text-base md:text-lg">
+                        Tracking my academic evolution from computer science fundamentals to cutting-edge Artificial Intelligence.
+                    </p>
                 </div>
-                <div id="journey-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"></div>
-            </div>
+                <div id="journey-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto"></div>
             </div>
         </section>
 
-        <!---------------------------------------------------------------------------------------------------------------------------------------------------->
-
+        <!-- ========================================================================================================= -->
         <!-- Contact Section -->
-        <section id="contact" class="py-24 px-6 bg-[#0d0d16]">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
-                    <span class="text-[#7ec8e3] text-sm font-semibold tracking-widest uppercase">Get in Touch</span>
-                    <h2 class="text-4xl md:text-5xl font-bold mt-3">Let's <span class="text-gradient">Collaborate</span>
+        <!-- ========================================================================================================= -->
+        <section id="contact" class="py-24 px-4 sm:px-6 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto relative z-10 w-full">
+                <div class="text-center mb-12">
+                    <span class="text-[#38bdf8] text-xs font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full bg-[#06b6d4]/10 border border-[#06b6d4]/20 inline-block">
+                        Get In Touch
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black mt-4">
+                        Let's <span class="text-gradient">Collaborate</span>
                     </h2>
-                    <p class="text-[#a0a0b8] mt-4 max-w-lg mx-auto">Have a project in mind? Let's build something
-                        intelligent together.</p>
+                    <p class="text-[#94a3b8] mt-3 max-w-lg mx-auto text-sm sm:text-base md:text-lg">
+                        Have an innovative project in mind or want to talk AI? Let's build something extraordinary together.
+                    </p>
                 </div>
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="text" name="name" placeholder="Your Full Name" required class="form-input"
-                            aria-label="Your Name">
-                        <input type="email" name="email" placeholder="Your Email" required class="form-input"
-                            aria-label="Your Email">
+
+                <div class="glossy-panel p-5 sm:p-8 md:p-12">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-[#cbd5e1] uppercase tracking-wider mb-2">Your Name</label>
+                                <input type="text" name="name" placeholder="Alex Morgan" required class="form-input"
+                                    aria-label="Your Name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-[#cbd5e1] uppercase tracking-wider mb-2">Your Email</label>
+                                <input type="email" name="email" placeholder="alex@company.com" required class="form-input"
+                                    aria-label="Your Email">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-[#cbd5e1] uppercase tracking-wider mb-2">Subject</label>
+                            <input type="text" name="subject" placeholder="Collaboration / Project Inquiry" class="form-input"
+                                aria-label="Subject">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-[#cbd5e1] uppercase tracking-wider mb-2">Message</label>
+                            <textarea name="message" rows="5" placeholder="Tell me about your ideas or inquiry..." required
+                                class="form-input resize-none" aria-label="Your Message"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="hero-btn hero-btn-primary w-full !py-4 text-base font-bold squishy-hover">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+
+                    <div id="form-success"
+                        class="hidden mt-6 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-center text-emerald-400 font-medium">
+                        <i class="fas fa-check-circle mr-2"></i> Message sent successfully! I'll get back to you soon.
                     </div>
-                    <input type="text" name="subject" placeholder="Subject/Project enquiry" class="form-input"
-                        aria-label="Subject">
-                    <textarea name="message" rows="5" placeholder="Your Message/Description" required
-                        class="form-input resize-none" aria-label="Your Message"></textarea>
-                    <button type="submit"
-                        class="w-full px-8 py-4 bg-gradient-to-r from-[#9c27b0] to-[#7ec8e3] text-white font-semibold rounded-[18px] transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#9c27b0]/60 hover:-translate-y-1">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-                <div id="form-success"
-                    class="hidden mt-6 p-4 bg-[#1e1e2a] border border-[#7ec8e3]/30 rounded-xl text-center text-[#7ec8e3]">
-                    <i class="fas fa-check-circle mr-2"></i> Message sent successfully! I'll get back to you soon.
                 </div>
             </div>
+
+            <!-- Background Ambient Glow -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-purple-600/10 rounded-full blur-[140px] pointer-events-none"></div>
         </section>
     </main>
 
-    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
-
+    <!-- ========================================================================================================= -->
     <!-- Footer -->
-    <footer class="py-12 px-6 border-t border-[#1e1e2a]">
+    <!-- ========================================================================================================= -->
+    <footer class="py-12 px-6 border-t border-white/[0.06] bg-[#05060a]">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="text-[#a0a0b8] text-sm">
+            <div class="flex items-center gap-2">
+                <span class="text-lg font-bold text-white">Jaidev S</span>
+                <span class="text-xs text-[#64748b]">&bull; Engineered with passion & intelligence</span>
+            </div>
+            <div class="text-[#64748b] text-sm">
                 &copy; 2026 Jaidev S. All rights reserved.
             </div>
-            <div id="footer-social" class="flex gap-6"></div>
+            <div id="footer-social" class="flex gap-4"></div>
         </div>
     </footer>
-    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!-- Squishy Back To Top Floating Button -->
     <a href="#home" id="backToTop" aria-label="Back to Top">
         <i class="fas fa-arrow-up"></i>
     </a>
-    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!-- Application Script -->
     <script src="script.js"></script>
 </body>
 
