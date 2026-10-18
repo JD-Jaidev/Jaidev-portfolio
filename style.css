@@ -150,6 +150,10 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
+    padding-bottom: 0.22em; /* Prevents the letter 'g' and other descenders from getting cut off */
+    margin-bottom: -0.22em;
+    padding-right: 0.06em;
+    line-height: 1.25;
     filter: drop-shadow(0 2px 10px rgba(192, 132, 252, 0.25));
 }
 
@@ -158,6 +162,10 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: inline-block;
+    padding-bottom: 0.22em;
+    margin-bottom: -0.22em;
+    line-height: 1.25;
 }
 
 /* Clean Glass Panel - No diagonal glare, no white reflection lines */
@@ -399,7 +407,7 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: auto;
 }
 
-.mobile-menu a {
+.mobile-menu ul a {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -412,10 +420,44 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.25s ease;
 }
 
-.mobile-menu a:hover {
+.mobile-menu ul a:hover {
     color: #ffffff;
     background: rgba(168, 85, 247, 0.16);
     transform: translateX(4px);
+}
+
+/* Get in Touch CTA Button in Mobile Menu - Full Length, Centered, Crisp White Text */
+.mobile-menu .hero-btn,
+.mobile-menu a.hero-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    color: #ffffff !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    padding: 13px 20px !important;
+    border-radius: 999px !important;
+    box-shadow: 0 6px 20px -2px rgba(139, 92, 246, 0.5) !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+    margin: 0 auto !important;
+}
+
+.mobile-menu .hero-btn i,
+.mobile-menu a.hero-btn i,
+.mobile-menu .hero-btn span,
+.mobile-menu a.hero-btn span {
+    color: #ffffff !important;
+}
+
+.mobile-menu .hero-btn:hover,
+.mobile-menu a.hero-btn:hover {
+    color: #ffffff !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 25px -2px rgba(6, 182, 212, 0.6) !important;
 }
 
 /* ==========================================================================
@@ -456,10 +498,9 @@ h1, h2, h3, h4, h5, h6 {
 .marquee-row {
     display: flex;
     width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    padding: 10px 0;
-    margin-bottom: 4px;
+    overflow: visible; /* Prevents square cutting of glows */
+    padding: 16px 0;
+    margin-bottom: 2px;
     user-select: none;
 }
 
@@ -496,7 +537,7 @@ h1, h2, h3, h4, h5, h6 {
     100% { transform: translateX(0); }
 }
 
-/* THE SEAMLESS SKILL ITEM - NO FRAME, NO BOX, NO INSET WHITE LINE */
+/* THE SEAMLESS SKILL ITEM - EVEN ROUNDED RECTANGLE GLOW */
 .skill-pill {
     --brand-color: #06b6d4;
     --brand-glow: rgba(6, 182, 212, 0.45);
@@ -504,15 +545,28 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 8px 16px;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+    padding: 8px 18px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     white-space: nowrap;
-    transition: transform 0.3s var(--spring-physics);
+    transition: all 0.3s var(--spring-physics);
     flex-shrink: 0;
     user-select: none;
+    box-sizing: border-box;
+}
+
+/* Hover state: Symmetrical rounded rectangle glow hugging the skill */
+.skill-pill:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--brand-color);
+    box-shadow: 0 0 16px var(--brand-glow),
+                0 0 32px var(--brand-glow),
+                inset 0 0 12px rgba(255, 255, 255, 0.04);
+    z-index: 20;
 }
 
 /* Colorful brand icons by default */
@@ -524,46 +578,38 @@ h1, h2, h3, h4, h5, h6 {
     width: 32px;
     height: 32px;
     color: var(--brand-color);
-    filter: drop-shadow(0 0 6px var(--brand-glow));
+    filter: drop-shadow(0 0 4px var(--brand-glow));
     transition: transform 0.3s var(--spring-physics), filter 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .skill-pill-icon svg {
     width: 28px;
     height: 28px;
     fill: currentColor;
+    filter: none !important; /* Prevents SVG rasterization tile square artifact */
 }
 
 .skill-pill-text {
     font-family: var(--font-heading);
     font-size: 1.05rem;
-    font-weight: 600;
-    color: #cbd5e1;
-    letter-spacing: 0.01em;
+    font-weight: 700;
+    color: #e2e8f0;
+    letter-spacing: -0.01em;
     transition: color 0.25s ease, text-shadow 0.25s ease;
-}
-
-/* HOVER STATE: PURE COLOR GLOW AROUND ICON AND TEXT, ZERO BOX/FRAME */
-.skill-pill:hover {
-    transform: translateY(-5px) scale(1.15);
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    z-index: 20;
+    position: relative;
+    z-index: 1;
 }
 
 .skill-pill:hover .skill-pill-icon {
-    transform: scale(1.22);
-    filter: drop-shadow(0 0 16px var(--brand-color)) drop-shadow(0 0 28px var(--brand-glow));
-}
-
-.skill-pill:hover .skill-pill-icon svg {
-    filter: drop-shadow(0 0 16px var(--brand-color)) drop-shadow(0 0 28px var(--brand-glow));
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px var(--brand-color));
 }
 
 .skill-pill:hover .skill-pill-text {
     color: #ffffff;
-    text-shadow: 0 0 14px var(--brand-glow), 0 0 24px var(--brand-color);
+    text-shadow: 0 0 12px var(--brand-glow);
 }
 
 /* ==========================================================================
@@ -638,8 +684,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Profile Orbit Container */
 .profile-container {
     position: relative;
-    width: 340px;
-    height: 340px;
+    width: 400px;
+    height: 400px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -649,11 +695,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .profile-circle {
-    width: 240px;
-    height: 240px;
+    width: 290px;
+    height: 290px;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.22);
     background: radial-gradient(circle at 30% 30%, #1e1b4b, #090a14);
     box-shadow: 0 0 45px rgba(168, 85, 247, 0.35);
     position: relative;
@@ -681,7 +727,7 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.07);
 }
 
-/* Ambient Orbit Rings */
+/* Two Orbiting Oval Rings Revolving Around Profile (One Clockwise, One Anticlockwise) */
 .orbit-ring {
     position: absolute;
     top: 50%;
@@ -689,47 +735,64 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
     pointer-events: none;
     z-index: 2;
-    transition: border-color 0.4s ease;
+    will-change: transform;
 }
 
+/* Oval Ring 1: Horizontal oval revolving clockwise */
 .orbit-ring-1 {
-    width: 300px;
-    height: 300px;
-    margin-top: -150px;
-    margin-left: -150px;
-    border: 1.5px dashed rgba(6, 182, 212, 0.45);
-    animation: spin-clockwise 22s linear infinite;
+    width: 480px;
+    height: 350px;
+    border: 1.5px dashed rgba(6, 182, 212, 0.6);
+    box-shadow: 0 0 16px rgba(6, 182, 212, 0.25), inset 0 0 16px rgba(6, 182, 212, 0.12);
+    animation: orbit-oval-clockwise 22s linear infinite;
 }
 
+.orbit-ring-1::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #22d3ee;
+    box-shadow: 0 0 12px #22d3ee, 0 0 24px rgba(34, 211, 238, 0.9);
+}
+
+/* Oval Ring 2: Vertical oval revolving anticlockwise */
 .orbit-ring-2 {
-    width: 360px;
-    height: 360px;
-    margin-top: -180px;
-    margin-left: -180px;
-    border: 1.5px dashed rgba(168, 85, 247, 0.4);
-    animation: spin-counter 28s linear infinite;
+    width: 350px;
+    height: 480px;
+    border: 1.5px dashed rgba(168, 85, 247, 0.6);
+    box-shadow: 0 0 16px rgba(168, 85, 247, 0.25), inset 0 0 16px rgba(168, 85, 247, 0.12);
+    animation: orbit-oval-anticlockwise 26s linear infinite;
 }
 
-.orbit-ring-3 {
-    width: 420px;
-    height: 420px;
-    margin-top: -210px;
-    margin-left: -210px;
-    border: 1px dashed rgba(236, 72, 153, 0.25);
-    animation: spin-clockwise 35s linear infinite;
+.orbit-ring-2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #c084fc;
+    box-shadow: 0 0 12px #c084fc, 0 0 24px rgba(192, 132, 252, 0.9);
 }
 
-@keyframes spin-clockwise {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes orbit-oval-clockwise {
+    0%   { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-@keyframes spin-counter {
-    0%   { transform: rotate(360deg); }
-    100% { transform: rotate(0deg); }
+@keyframes orbit-oval-anticlockwise {
+    0%   { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(-360deg); }
 }
 
-/* Orbit Floating Badges */
+/* Orbit Floating Badges - Maintained at exact crisp size */
 .orbit-badge-wrap {
     position: absolute;
     z-index: 15;
@@ -737,14 +800,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .orbit-badge-wrap-1 {
-    top: 15px;
-    right: 10px;
+    top: 18px;
+    right: -6px;
     animation: badge-float-1 5s ease-in-out infinite;
 }
 
 .orbit-badge-wrap-2 {
-    bottom: 20px;
-    left: 5px;
+    bottom: 22px;
+    left: -8px;
     animation: badge-float-2 5.5s ease-in-out infinite 0.6s;
 }
 
@@ -1080,6 +1143,18 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-muted);
 }
 
+/* Send Message Submit Button - Matches full length of message box */
+#contact form button[type="submit"],
+#contact form .hero-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+}
+
 /* Chrome Autofill Override */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -1144,19 +1219,18 @@ textarea:-webkit-autofill:focus {
 
 @media (max-width: 1024px) {
     .profile-container {
-        width: 310px;
-        height: 310px;
+        width: 350px;
+        height: 350px;
         margin: 24px auto;
     }
 
     .profile-circle {
-        width: 200px;
-        height: 200px;
+        width: 240px;
+        height: 240px;
     }
 
-    .orbit-ring-1 { width: 260px; height: 260px; margin-top: -130px; margin-left: -130px; }
-    .orbit-ring-2 { width: 310px; height: 310px; margin-top: -155px; margin-left: -155px; }
-    .orbit-ring-3 { width: 360px; height: 360px; margin-top: -180px; margin-left: -180px; }
+    .orbit-ring-1 { width: 400px; height: 300px; margin: 0; }
+    .orbit-ring-2 { width: 300px; height: 400px; margin: 0; }
 }
 
 @media (max-width: 768px) {
@@ -1181,33 +1255,32 @@ textarea:-webkit-autofill:focus {
 
     /* Profile Orb centered on tablet/mobile */
     .profile-container {
-        width: 260px;
-        height: 260px;
+        width: 300px;
+        height: 300px;
         margin: 20px auto;
     }
 
     .profile-circle {
-        width: 160px;
-        height: 160px;
+        width: 200px;
+        height: 200px;
     }
 
-    .orbit-ring-1 { width: 210px; height: 210px; margin-top: -105px; margin-left: -105px; }
-    .orbit-ring-2 { width: 250px; height: 250px; margin-top: -125px; margin-left: -125px; }
-    .orbit-ring-3 { display: none; /* Hide large 3rd ring on mobile to prevent side spill */ }
+    .orbit-ring-1 { width: 330px; height: 250px; margin: 0; }
+    .orbit-ring-2 { width: 250px; height: 330px; margin: 0; }
 
     .orbit-badge-wrap-1 {
-        top: 0;
-        right: 0;
+        top: 6px;
+        right: -4px;
     }
 
     .orbit-badge-wrap-2 {
-        bottom: 0;
-        left: 0;
+        bottom: 8px;
+        left: -4px;
     }
 
     .orbit-badge {
-        font-size: 0.72rem;
-        padding: 5px 12px;
+        font-size: 0.76rem;
+        padding: 6px 14px;
     }
 
     /* Ticker */
@@ -1242,11 +1315,34 @@ textarea:-webkit-autofill:focus {
         width: 100%;
     }
 
-    .hero-btn {
+    .hero-buttons .hero-btn {
         width: 100%;
         max-width: 280px;
         padding: 12px 20px;
         font-size: 0.9rem;
+    }
+
+    /* Full length overrides for Send Message and Get in Touch */
+    #contact form button[type="submit"],
+    #contact form .hero-btn,
+    .mobile-menu .hero-btn,
+    .mobile-menu a.hero-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        color: #ffffff !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+    }
+
+    #contact form button[type="submit"] *,
+    #contact form .hero-btn *,
+    .mobile-menu .hero-btn *,
+    .mobile-menu a.hero-btn * {
+        color: #ffffff !important;
     }
 
     /* Contact Form on Mobile - Centered without side gap */
@@ -1281,17 +1377,22 @@ textarea:-webkit-autofill:focus {
     }
 
     .profile-container {
-        width: 230px;
-        height: 230px;
+        width: 260px;
+        height: 260px;
     }
 
     .profile-circle {
-        width: 140px;
-        height: 140px;
+        width: 175px;
+        height: 175px;
     }
 
-    .orbit-ring-1 { width: 180px; height: 180px; margin-top: -90px; margin-left: -90px; }
-    .orbit-ring-2 { width: 220px; height: 220px; margin-top: -110px; margin-left: -110px; }
+    .orbit-ring-1 { width: 270px; height: 210px; margin: 0; }
+    .orbit-ring-2 { width: 210px; height: 270px; margin: 0; }
+
+    .orbit-badge {
+        font-size: 0.72rem;
+        padding: 5px 12px;
+    }
 
     #contact .glossy-panel {
         padding: 20px 14px !important;
@@ -1300,5 +1401,28 @@ textarea:-webkit-autofill:focus {
     .form-input {
         padding: 12px 14px;
         font-size: 0.9rem;
+    }
+
+    /* Phone specific (<= 480px) full width and pure white text guarantee */
+    #contact form button[type="submit"],
+    #contact form .hero-btn,
+    .mobile-menu .hero-btn,
+    .mobile-menu a.hero-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        color: #ffffff !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+    }
+
+    #contact form button[type="submit"] *,
+    #contact form .hero-btn *,
+    .mobile-menu .hero-btn *,
+    .mobile-menu a.hero-btn * {
+        color: #ffffff !important;
     }
 }
