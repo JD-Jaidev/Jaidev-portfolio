@@ -255,6 +255,7 @@ const projects = [
     }
 ];
 
+
 /* ─── JOURNEY ─── */
 const journeyData = [
     {
@@ -279,6 +280,7 @@ const journeyData = [
     }
 ];
 
+
 /* ─── SOCIAL LINKS ─── */
 const socialLinks = [
     { icon: "fab fa-github", href: "https://github.com/JD-Jaidev/", label: "GitHub" },
@@ -288,6 +290,7 @@ const socialLinks = [
     { icon: "fab fa-x-twitter", href: "https://x.com/Jaidevs10", label: "X" }
 ];
 
+
 // ━━━ 2. RENDER FUNCTIONS ━━━
 
 /* ── Render Squishy Nav ── */
@@ -296,6 +299,7 @@ function renderNav(items) {
         `<li><a href="${i.href}" data-index="${index}" class="nav-link squishy-hover">${i.label}</a></li>`
     ).join("");
 }
+
 
 /* ── Render Skill Marquee Item (Glowing on hover) ── */
 function createSkillPill(skill) {
@@ -315,6 +319,7 @@ function createSkillPill(skill) {
         </div>
     `;
 }
+
 
 /* ── Populate Infinite Marquee Rows ── */
 function setupMarquee() {
@@ -627,6 +632,7 @@ function animateProgressBars() {
     });
 }
 
+
 // ━━━ 7. BACK TO TOP BUTTON ━━━
 
 const backToTop = document.getElementById("backToTop");
@@ -638,6 +644,7 @@ window.addEventListener("scroll", () => {
         backToTop.classList.remove("show");
     }
 });
+
 
 // ━━━ 8. MOUNT AND EVENT LISTENERS ━━━
 
