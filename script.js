@@ -155,15 +155,17 @@ const techSkillsRow2 = [
 
 /* ─── CORE COMPETENCY METRICS ─── */
 const coreCompetencies = [
-    { name: "Python & Data Science (NumPy/Pandas)", level: 88, color: "from-[#38bdf8] to-[#0284c7]", icon: "devicon-python-plain" },
-    { name: "Machine Learning (SciKit-Learn)", level: 75, color: "from-[#c084fc] to-[#9333ea]", icon: "fas fa-brain" },
-    { name: "Deep Learning (PyTorch/TensorFlow)", level: 68, color: "from-[#f472b6] to-[#db2777]", icon: "fas fa-network-wired" },
+    { name: "Python & Data Science (NumPy/Pandas)", level: 64, color: "from-[#38bdf8] to-[#0284c7]", icon: "devicon-python-plain" },
+    { name: "Machine Learning (SciKit-Learn)", level: 28, color: "from-[#c084fc] to-[#9333ea]", icon: "fas fa-brain" },
+    { name: "Deep Learning (TensorFlow/PyTorch)", level: 20, color: "from-[#f472b6] to-[#db2777]", icon: "fas fa-network-wired" },
     { name: "LLMs, RAG & LangChain", level: 82, color: "from-[#22c55e] to-[#059669]", icon: "fas fa-robot" },
-    { name: "NLP & Computer Vision (OpenCV)", level: 70, color: "from-[#38bdf8] to-[#a855f7]", icon: "fas fa-eye" },
-    { name: "Web Development (HTML5, CSS3, JS)", level: 85, color: "from-[#f59e0b] to-[#ea580c]", icon: "devicon-javascript-plain" },
-    { name: "Databases & DBMS (MySQL)", level: 78, color: "from-[#06b6d4] to-[#0284c7]", icon: "devicon-mysql-original" },
-    { name: "Version Control & Git/GitHub", level: 90, color: "from-[#f97316] to-[#dc2626]", icon: "devicon-git-plain" },
-    { name: "Workflow Automations & n8n", level: 65, color: "from-[#a855f7] to-[#ec4899]", icon: "fas fa-bolt" }
+    { name: "NLP & Computer Vision (OpenCV)", level: 27, color: "from-[#38bdf8] to-[#a855f7]", icon: "fas fa-eye" },
+    { name: "Web Development (HTML5, CSS3, JS)", level: 56, color: "from-[#f59e0b] to-[#ea580c]", icon: "devicon-javascript-plain" },
+    { name: "Databases & DBMS (MySQL)", level: 43, color: "from-[#06b6d4] to-[#0284c7]", icon: "devicon-mysql-original" },
+    { name: "Version Control & Git/GitHub", level: 83, color: "from-[#f97316] to-[#dc2626]", icon: "devicon-git-plain" },
+    { name: "Workflow Automations (Zapier)", level: 23, color: "from-[#a855f7] to-[#ec4899]", icon: "fas fa-bolt" },
+    { name: "PC Building", level: 93, color: "from-[#f59e0b] to-[#ea580c]", icon: "fas fa-laptop-code" },
+    { name: "Computer Networks & Operating Systems", level: 20, color: "from-[#22c55e] to-[#059669]", icon: "fas fa-network-wired" }
 ];
 
 /* ─── PROJECTS ─── */
@@ -281,7 +283,7 @@ const journeyData = [
 const socialLinks = [
     { icon: "fab fa-github", href: "https://github.com/JD-Jaidev/", label: "GitHub" },
     { icon: "fab fa-linkedin-in", href: "https://linkedin.com/in/jaidev-s/", label: "LinkedIn" },
-    { icon: "fab fa-instagram", href: "https://www.instagram.com/itxz_jxda/", label: "Instagram" },
+    { icon: "fab fa-instagram", href: "https://www.instagram.com/jd._.jxidev/", label: "Instagram" },
     { icon: "fab fa-discord", href: "https://discord.com/users/1545065224598585451", label: "Discord" },
     { icon: "fab fa-x-twitter", href: "https://x.com/Jaidevs10", label: "X" }
 ];
