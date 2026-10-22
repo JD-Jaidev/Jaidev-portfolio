@@ -9,6 +9,7 @@ const navItems = [
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
     { label: "Journey", href: "#journey" },
+    { label: "Resume", href: "#resume" },
     { label: "Contact", href: "#contact" }
 ];
 
@@ -161,11 +162,12 @@ const coreCompetencies = [
     { name: "LLMs, RAG & LangChain", level: 82, color: "from-[#22c55e] to-[#059669]", icon: "fas fa-robot" },
     { name: "NLP & Computer Vision (OpenCV)", level: 27, color: "from-[#38bdf8] to-[#a855f7]", icon: "fas fa-eye" },
     { name: "Web Development (HTML5, CSS3, JS)", level: 56, color: "from-[#f59e0b] to-[#ea580c]", icon: "devicon-javascript-plain" },
+    { name: "C++ Programming", level: 35, color: "from-[#c084fc] to-[#9333ea]", icon: "devicon-cplusplus-plain" },
+    { name: "Computer Networks & Operating Systems", level: 20, color: "from-[#22c55e] to-[#059669]", icon: "fas fa-network-wired" },
     { name: "Databases & DBMS (MySQL)", level: 43, color: "from-[#06b6d4] to-[#0284c7]", icon: "devicon-mysql-original" },
     { name: "Version Control & Git/GitHub", level: 83, color: "from-[#f97316] to-[#dc2626]", icon: "devicon-git-plain" },
     { name: "Workflow Automations (Zapier)", level: 23, color: "from-[#a855f7] to-[#ec4899]", icon: "fas fa-bolt" },
-    { name: "PC Building", level: 93, color: "from-[#f59e0b] to-[#ea580c]", icon: "fas fa-laptop-code" },
-    { name: "Computer Networks & Operating Systems", level: 20, color: "from-[#22c55e] to-[#059669]", icon: "fas fa-network-wired" }
+    { name: "PC Building", level: 93, color: "from-[#f59e0b] to-[#ea580c]", icon: "fas fa-laptop-code" }
 ];
 
 /* ─── PROJECTS ─── */
@@ -709,7 +711,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mobileMenu.classList.toggle("active");
         }
     });
-
+    
     // Contact Form Handling (retraining existing Google Apps Script endpoint)
     const contactForm = document.getElementById("contact-form");
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyAoMHgn1PZ3oeGgLQCKaLz-cS05PTm-WOcUiOFuTmtTHzzOMJdL5eKyi-dmvPR6ESQBA/exec";
@@ -749,6 +751,95 @@ document.addEventListener("DOMContentLoaded", () => {
                     submitBtn.innerHTML = originalContent;
                     submitBtn.disabled = false;
                 }, 3000);
+            }
+        });
+    }
+
+    // Resume Document Actions & Preview Toggle
+    const previewToggleBtn = document.getElementById("resume-preview-toggle-btn");
+    const teaserPreviewBtn = document.getElementById("resume-teaser-preview-btn");
+    const closePreviewBtn = document.getElementById("resume-close-preview-btn");
+    const previewContainer = document.getElementById("resume-preview-container");
+    const teaserCard = document.getElementById("resume-teaser-card");
+    const resumeFrame = document.getElementById("resume-frame");
+    const previewBtnText = document.getElementById("preview-btn-text");
+    const previewBtnIcon = document.getElementById("preview-btn-icon");
+
+    function openResumePreview() {
+        if (!previewContainer) return;
+        
+        // Lazy-load PDF source on demand
+        if (resumeFrame && (!resumeFrame.src || resumeFrame.src === "about:blank" || !resumeFrame.getAttribute("src"))) {
+            const targetSrc = resumeFrame.dataset.src || "assets/Jaidev-S-Resume.pdf#view=FitH";
+            resumeFrame.src = targetSrc;
+        }
+
+        previewContainer.classList.remove("hidden");
+        if (teaserCard) teaserCard.classList.add("hidden");
+        
+        if (previewBtnText) previewBtnText.textContent = "Close Preview";
+        if (previewBtnIcon) {
+            previewBtnIcon.className = "fas fa-eye-slash mr-2";
+        }
+        if (previewToggleBtn) {
+            previewToggleBtn.classList.add("active-preview");
+        }
+
+        // Smooth scroll to preview station
+        setTimeout(() => {
+            previewContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 120);
+    }
+
+    function closeResumePreview() {
+        if (!previewContainer) return;
+        previewContainer.classList.add("hidden");
+        if (teaserCard) teaserCard.classList.remove("hidden");
+
+        if (previewBtnText) previewBtnText.textContent = "Preview Resume";
+        if (previewBtnIcon) {
+            previewBtnIcon.className = "fas fa-eye mr-2";
+        }
+        if (previewToggleBtn) {
+            previewToggleBtn.classList.remove("active-preview");
+        }
+    }
+
+    function toggleResumePreview() {
+        if (previewContainer && previewContainer.classList.contains("hidden")) {
+            openResumePreview();
+        } else {
+            closeResumePreview();
+        }
+    }
+
+    if (previewToggleBtn) {
+        previewToggleBtn.addEventListener("click", toggleResumePreview);
+    }
+    if (teaserPreviewBtn) {
+        teaserPreviewBtn.addEventListener("click", openResumePreview);
+    }
+    if (closePreviewBtn) {
+        closePreviewBtn.addEventListener("click", closeResumePreview);
+    }
+
+    const resumePrintBtn = document.getElementById("resume-print-btn");
+    if (resumePrintBtn) {
+        resumePrintBtn.addEventListener("click", () => {
+            // If preview isn't open, open it first
+            if (previewContainer && previewContainer.classList.contains("hidden")) {
+                openResumePreview();
+            }
+            const frame = document.getElementById("resume-frame");
+            if (frame && frame.contentWindow) {
+                try {
+                    frame.contentWindow.focus();
+                    frame.contentWindow.print();
+                } catch (e) {
+                    window.open("assets/Jaidev-S-Resume.pdf", "_blank");
+                }
+            } else {
+                window.open("assets/Jaidev-S-Resume.pdf", "_blank");
             }
         });
     }
