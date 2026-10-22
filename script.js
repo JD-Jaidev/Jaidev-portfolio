@@ -156,18 +156,18 @@ const techSkillsRow2 = [
 
 /* ─── CORE COMPETENCY METRICS ─── */
 const coreCompetencies = [
-    { name: "Python & Data Science (NumPy/Pandas)", level: 64, color: "from-[#38bdf8] to-[#0284c7]", icon: "devicon-python-plain" },
-    { name: "Machine Learning (SciKit-Learn)", level: 28, color: "from-[#c084fc] to-[#9333ea]", icon: "fas fa-brain" },
-    { name: "Deep Learning (TensorFlow/PyTorch)", level: 20, color: "from-[#f472b6] to-[#db2777]", icon: "fas fa-network-wired" },
-    { name: "LLMs, RAG & LangChain", level: 82, color: "from-[#22c55e] to-[#059669]", icon: "fas fa-robot" },
-    { name: "NLP & Computer Vision (OpenCV)", level: 27, color: "from-[#38bdf8] to-[#a855f7]", icon: "fas fa-eye" },
-    { name: "Web Development (HTML5, CSS3, JS)", level: 56, color: "from-[#f59e0b] to-[#ea580c]", icon: "devicon-javascript-plain" },
-    { name: "C++ Programming", level: 35, color: "from-[#c084fc] to-[#9333ea]", icon: "devicon-cplusplus-plain" },
-    { name: "Computer Networks & Operating Systems", level: 20, color: "from-[#22c55e] to-[#059669]", icon: "fas fa-network-wired" },
-    { name: "Databases & DBMS (MySQL)", level: 43, color: "from-[#06b6d4] to-[#0284c7]", icon: "devicon-mysql-original" },
-    { name: "Version Control & Git/GitHub", level: 83, color: "from-[#f97316] to-[#dc2626]", icon: "devicon-git-plain" },
-    { name: "Workflow Automations (Zapier)", level: 23, color: "from-[#a855f7] to-[#ec4899]", icon: "fas fa-bolt" },
-    { name: "PC Building", level: 93, color: "from-[#f59e0b] to-[#ea580c]", icon: "fas fa-laptop-code" }
+    { name: "Python & Data Science (NumPy/Pandas)", level: 64, category: "beige", icon: "devicon-python-plain" },
+    { name: "Machine Learning (SciKit-Learn)", level: 28, category: "brown", icon: "fas fa-brain" },
+    { name: "Deep Learning (TensorFlow/PyTorch)", level: 20, category: "green", icon: "fas fa-network-wired" },
+    { name: "LLMs, RAG & LangChain", level: 82, category: "brown", icon: "fas fa-robot" },
+    { name: "NLP & Computer Vision (OpenCV)", level: 27, category: "green", icon: "fas fa-eye" },
+    { name: "Web Development (HTML5, CSS3, JS)", level: 56, category: "beige", icon: "devicon-javascript-plain" },
+    { name: "C++ Programming", level: 35, category: "green", icon: "devicon-cplusplus-plain" },
+    { name: "Computer Networks & Operating Systems", level: 20, category: "brown", icon: "fas fa-network-wired" },
+    { name: "Databases & DBMS (MySQL)", level: 43, category: "brown", icon: "devicon-mysql-original" },
+    { name: "Version Control & Git/GitHub", level: 83, category: "beige", icon: "devicon-git-plain" },
+    { name: "Workflow Automations (Zapier)", level: 23, category: "green", icon: "fas fa-bolt" },
+    { name: "PC Building", level: 93, category: "beige", icon: "fas fa-laptop-code" }
 ];
 
 /* ─── PROJECTS ─── */
@@ -266,8 +266,8 @@ const journeyData = [
         board: "CBSE Curriculum (Class 12th)",
         duration: "Completed",
         icon: "fas fa-school",
-        color: "hover:border-[#38bdf8]/50 hover:shadow-[#38bdf8]/15",
-        badgeColor: "bg-[#06b6d4]/10 text-[#38bdf8] border-[#06b6d4]/30",
+        color: "hover:border-[#2D4354] hover:shadow-black/50",
+        badgeColor: "bg-[#534145] text-[#FED7A5] border-[#FED7A5]/30",
         details: "Built a solid academic foundation focusing closely on Higher Mathematics, Physics, and foundational Computer Science principles."
     },
     {
@@ -276,8 +276,8 @@ const journeyData = [
         board: "B.E. Computer Science Engineering (AI/ML Specialization)",
         duration: "Incoming / Active",
         icon: "fas fa-user-graduate",
-        color: "hover:border-[#c084fc]/50 hover:shadow-[#c084fc]/15",
-        badgeColor: "bg-[#a855f7]/10 text-[#c084fc] border-[#a855f7]/30",
+        color: "hover:border-[#9E6752] hover:shadow-black/50",
+        badgeColor: "bg-[#9E6752]/20 text-[#FED7A5] border-[#9E6752]/40",
         details: "Actively specializing in Artificial Intelligence, Deep Learning architectures, and Autonomous Agent workflows. Crafting intelligent systems and mastering modern computational algorithms."
     }
 ];
@@ -344,22 +344,43 @@ function setupMarquee() {
 
 /* ── Render Core Competencies ── */
 function renderCompetencies(items) {
-    return items.map(s => `
-        <div class="skill-card group">
+    const themeStyles = {
+        beige: {
+            fillClass: "progress-beige",
+            badgeClass: "bg-[#FED7A5]/15 border-[#FED7A5]/35 text-[#FED7A5] group-hover:bg-[#FED7A5] group-hover:text-[#20212B]",
+            percentColor: "text-[#FED7A5]"
+        },
+        brown: {
+            fillClass: "progress-brown",
+            badgeClass: "bg-[#C46645]/20 border-[#E98C6C]/40 text-[#E98C6C] group-hover:bg-[#E98C6C] group-hover:text-[#20212B]",
+            percentColor: "text-[#E98C6C]"
+        },
+        green: {
+            fillClass: "progress-green",
+            badgeClass: "bg-[#52A665]/20 border-[#8EE29D]/40 text-[#8EE29D] group-hover:bg-[#8EE29D] group-hover:text-[#20212B]",
+            percentColor: "text-[#8EE29D]"
+        }
+    };
+
+    return items.map(s => {
+        const theme = themeStyles[s.category] || themeStyles.beige;
+        return `
+        <div class="skill-card skill-theme-${s.category} group">
             <div class="flex justify-between items-center mb-3">
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-sm text-[#38bdf8] group-hover:scale-110 group-hover:text-white group-hover:bg-purple-600/30 transition-all">
+                    <div class="w-8 h-8 rounded-lg border flex items-center justify-center text-sm ${theme.badgeClass} group-hover:scale-110 transition-all">
                         <i class="${s.icon}"></i>
                     </div>
                     <span class="text-white font-semibold text-sm sm:text-base">${s.name}</span>
                 </div>
-                <span class="text-[#c084fc] text-sm font-bold">${s.level}%</span>
+                <span class="${theme.percentColor} text-sm font-bold">${s.level}%</span>
             </div>
             <div class="progress-bar-bg">
-                <div class="progress-bar-fill bg-gradient-to-r ${s.color}" data-level="${s.level}"></div>
+                <div class="progress-bar-fill ${theme.fillClass}" data-level="${s.level}"></div>
             </div>
         </div>
-    `).join("");
+        `;
+    }).join("");
 }
 
 /* ── Render Project Filters ── */
@@ -397,8 +418,8 @@ function renderProjects(items) {
 
             <div class="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#38bdf8] transition-colors">${p.title}</h3>
-                    <p class="text-[#94a3b8] text-sm leading-relaxed">${p.desc}</p>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#FED7A5] transition-colors">${p.title}</h3>
+                    <p class="text-[#c4c6bd] text-sm leading-relaxed">${p.desc}</p>
                 </div>
 
                 <div class="pt-6 mt-4 border-t border-white/5 flex items-center justify-between gap-3">
@@ -435,10 +456,10 @@ function renderJourney(items) {
                     ${j.duration}
                 </span>
             </div>
-            <span class="text-[#94a3b8] text-xs font-bold uppercase tracking-widest block mb-1">${j.type}</span>
-            <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-gradient transition-all">${j.institution}</h3>
-            <p class="text-[#38bdf8] font-medium text-sm mb-4">${j.board}</p>
-            <p class="text-[#94a3b8] text-sm leading-relaxed">${j.details}</p>
+            <span class="text-[#8E9185] text-xs font-bold uppercase tracking-widest block mb-1">${j.type}</span>
+            <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-[#FED7A5] transition-all">${j.institution}</h3>
+            <p class="text-[#FED7A5] font-medium text-sm mb-4">${j.board}</p>
+            <p class="text-[#c4c6bd] text-sm leading-relaxed">${j.details}</p>
         </div>
     `).join("");
 }
@@ -447,7 +468,7 @@ function renderJourney(items) {
 function renderSocial(items) {
     return items.map(s => `
         <a href="${s.href}" target="_blank" rel="noopener noreferrer" 
-           class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#94a3b8] hover:text-white hover:bg-gradient-to-r hover:from-[#a855f7] hover:to-[#06b6d4] hover:border-transparent hover:scale-110 transition-all duration-300" 
+           class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#c4c6bd] hover:text-[#20212B] hover:bg-[#FED7A5] hover:border-transparent hover:scale-110 transition-all duration-300" 
            aria-label="${s.label}">
             <i class="${s.icon}"></i>
         </a>
