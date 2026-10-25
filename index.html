@@ -473,10 +473,39 @@
         </div>
     </footer>
 
-    <!-- Squishy Back To Top Floating Button -->
-    <a href="#home" id="backToTop" aria-label="Back to Top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    <!-- React Bits SlingButton Back To Top Floating Button -->
+    <div id="backToTop" class="sling-button" aria-label="Back to Top">
+        <svg class="sling-button__fx" viewBox="-44 -44 88 88" aria-hidden="true">
+            <g class="sling-button__tension" style="opacity: 0">
+                <path class="sling-button__band" d=""></path>
+                <path class="sling-button__band sling-button__band--hot" d=""></path>
+            </g>
+            <circle class="sling-button__well" r="34"></circle>
+            <circle class="sling-button__arc" r="34" pathLength="1" stroke-dasharray="0 1" style="opacity: 0"></circle>
+        </svg>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__dot" aria-hidden="true"></span>
+        <span class="sling-button__move">
+            <button type="button" class="sling-button__pad" aria-label="Back to Top" title="Pull down and release to launch to top!">
+                <span class="sling-button__face">
+                    <span class="sling-button__icon">
+                        <i class="fas fa-arrow-up"></i>
+                    </span>
+                </span>
+            </button>
+        </span>
+        <span class="sling-button__sr">Press Enter or pull down and release to go to top.</span>
+    </div>
 
     <!-- Application Script -->
     <script src="script.js"></script>
