@@ -229,6 +229,15 @@ const projects = [
         siteLink: null
     },
     {
+        title: "Task Orchestrator & To-Do Suite",
+        category: "Web Apps",
+        desc: "Fluid, responsive task management application with real-time state tracking, persistent local storage, interactive task categorization, and smooth micro-animations.",
+        tags: ["HTML5", "CSS3", "JavaScript"],
+        img: "assets/TODO.png",
+        link: "https://github.com/JD-Jaidev/TO-DO-LIST",
+        siteLink: "https://todo-list-athera.vercel.app/"
+    },
+    {
         title: "Desktop Weather Application",
         category: "Tools & Systems",
         desc: "Native desktop forecasting suite built with Python and PyQt5. Fetches real-time atmospheric telemetry via REST APIs, displaying dynamic visual weather conditions and forecasts.",
@@ -247,13 +256,13 @@ const projects = [
         siteLink: null
     },
     {
-        title: "Task Orchestrator & To-Do Suite",
-        category: "Web Apps",
-        desc: "Fluid, responsive task management application with real-time state tracking, persistent local storage, interactive task categorization, and smooth micro-animations.",
-        tags: ["HTML5", "CSS3", "JavaScript"],
-        img: "assets/TODO.png",
-        link: "https://github.com/JD-Jaidev/TO-DO-LIST",
-        siteLink: "https://todo-list-athera.vercel.app/"
+        title: "Fraud Flagger",
+        category: "FinTech",
+        desc: "A predictive analytics platform that leverages advanced statistical modeling and machine learning algorithms to identify and flag fraudulent financial transactions with high accuracy.",
+        tags: ["Python", "FinTech", "Streamlit"],
+        img: "assets/FRAUD-FLAGGER.png",
+        link: "https://github.com/Nitin-VR/Fraud-Flagger",
+        siteLink: "https://fraud-flagger.streamlit.app/"
     }
 ];
 
@@ -656,17 +665,322 @@ function animateProgressBars() {
 }
 
 
-// ━━━ 7. BACK TO TOP BUTTON ━━━
+// ━━━ 7. BACK TO TOP BUTTON (REACT BITS SLINGSHOT ENGINE) ━━━
 
 const backToTop = document.getElementById("backToTop");
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-        backToTop.classList.add("show");
-    } else {
-        backToTop.classList.remove("show");
+function setupSlingBackToTop() {
+    if (!backToTop) return;
+
+    // Scroll trigger (appears at bottom-right when scrolled)
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.add("show");
+        } else {
+            backToTop.classList.remove("show");
+        }
+    });
+
+    const root = backToTop;
+    const pad = root.querySelector(".sling-button__pad");
+    const padMove = root.querySelector(".sling-button__move");
+    const band = root.querySelector(".sling-button__band");
+    const hot = root.querySelector(".sling-button__band--hot");
+    const arc = root.querySelector(".sling-button__arc");
+    const fx = root.querySelector(".sling-button__tension");
+    const icon = root.querySelector(".sling-button__icon");
+    const dots = Array.from(root.querySelectorAll(".sling-button__dot"));
+
+    if (!pad || !padMove || !band || !hot || !arc || !fx) return;
+
+    const size = 54;
+    const strokeWidth = 3;
+    const GAP = 4;
+    const wellR = size / 2 + GAP + strokeWidth; // 34
+    const padR = size / 2 - strokeWidth / 2; // 25.5
+    const ARM = 42;
+    const R = 140; // maxPull
+    const launchSpeed = 2600;
+    const recoil = 0.25;
+    const flight = 120;
+    const spread = 60;
+    const SLOP = { fine: 4, coarse: 8 };
+
+    let px = 0;
+    let py = 0;
+    let dir = { ux: 0, uy: -1 };
+    let grip = null;
+    let isArmed = false;
+    let animId = null;
+    let skipClick = false;
+    let power = 0;
+
+    const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+
+    function aimIcon(ux, uy, dist) {
+        if (!icon) return;
+        const angle = (Math.atan2(-uy, -ux) * 180) / Math.PI + 90;
+        icon.style.transition = "none";
+        icon.style.transform = `rotate(${angle * clamp(dist / 12, 0, 1)}deg)`;
     }
-});
+
+    function relaxIcon() {
+        if (!icon) return;
+        icon.style.transition = "transform 360ms cubic-bezier(0.23, 1, 0.32, 1)";
+        icon.style.transform = "rotate(0deg)";
+    }
+
+    function paint() {
+        const x = px;
+        const y = py;
+        const { ux, uy } = dir;
+        const proj = x * ux + y * uy;
+        const p = clamp(proj / ARM, 0, 1);
+        const dist = Math.hypot(x, y);
+        let d = "";
+        if (dist > 0.5) {
+            const a = Math.atan2(y, x);
+            const b = Math.acos(clamp((wellR - padR) / dist, -1, 1));
+            d = [a + b, a - b]
+                .map(t => {
+                    const cx = Math.cos(t);
+                    const cy = Math.sin(t);
+                    return `M${(wellR * cx).toFixed(2)},${(wellR * cy).toFixed(2)}L${(x + padR * cx).toFixed(2)},${(y + padR * cy).toFixed(2)}`;
+                })
+                .join("");
+        }
+        band.setAttribute("d", d);
+        hot.setAttribute("d", d);
+        hot.style.opacity = String(p);
+        fx.style.opacity = String(clamp(proj / 6, 0, 1));
+        arc.setAttribute("stroke-dasharray", `${p} ${1 - p}`);
+        arc.setAttribute("stroke-dashoffset", String(p / 2));
+        arc.style.opacity = p > 0.01 ? "1" : "0";
+        if (grip) aimIcon(ux, uy, dist);
+        arc.setAttribute("transform", `rotate(${(Math.atan2(-uy, -ux) * 180) / Math.PI})`);
+        padMove.style.transform = `translate(${x.toFixed(2)}px, ${y.toFixed(2)}px)`;
+    }
+
+    function launchDot() {
+        relaxIcon();
+        const { ux, uy } = dir;
+        const base = Math.atan2(-uy, -ux);
+        const cone = (spread * Math.PI) / 180;
+        const push = 0.85 + 0.35 * power;
+        dots.forEach((dot, i) => {
+            if (!dot) return;
+            const lead = i === 0;
+            const angle = base + (lead ? 0 : (Math.random() + Math.random() - 1) * (cone / 2));
+            const cx = Math.cos(angle);
+            const cy = Math.sin(angle);
+            const reach = (lead ? flight : flight * (0.3 + Math.random())) * push;
+            const drift = lead ? 0 : (Math.random() - 0.5) * flight * 0.4;
+            const scale = lead ? 1 : 0.3 + Math.random() * 0.6;
+            const shrink = lead ? 0.6 : scale * (0.2 + Math.random() * 0.4);
+            const duration = lead ? 320 : 320 * (0.7 + Math.random());
+            const delay = lead ? 0 : Math.random() * 70;
+            const to = wellR + reach;
+            dot.animate(
+                [
+                    { transform: `translate(${cx * wellR}px, ${cy * wellR}px) scale(${scale})` },
+                    { transform: `translate(${cx * to - cy * drift}px, ${cy * to + cx * drift}px) scale(${shrink})` }
+                ],
+                { duration, delay, easing: "cubic-bezier(0.23, 1, 0.32, 1)", fill: "none" }
+            );
+            dot.animate(
+                [
+                    { opacity: 1, offset: 0 },
+                    { opacity: 1, offset: 0.55 },
+                    { opacity: 0, offset: 1 }
+                ],
+                { duration, delay, easing: "linear", fill: "none" }
+            );
+        });
+    }
+
+    function sendToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+        root.setAttribute("data-sent", "");
+        setTimeout(() => root.removeAttribute("data-sent"), 350);
+    }
+
+    function settle(v0) {
+        let curX = px;
+        let curY = py;
+        let vx = v0.x;
+        let vy = v0.y;
+        const stiffness = 260;
+        const damping = 22 * (1 - recoil * 0.4);
+        let lastTime = performance.now();
+
+        cancelAnimationFrame(animId);
+        function step(now) {
+            const dt = Math.min((now - lastTime) / 1000, 0.032);
+            lastTime = now;
+            const ax = -stiffness * curX - damping * vx;
+            const ay = -stiffness * curY - damping * vy;
+            vx += ax * dt;
+            vy += ay * dt;
+            curX += vx * dt;
+            curY += vy * dt;
+            px = curX;
+            py = curY;
+            paint();
+            if (Math.hypot(curX, curY) < 0.25 && Math.hypot(vx, vy) < 3) {
+                px = 0;
+                py = 0;
+                paint();
+                relaxIcon();
+                return;
+            }
+            animId = requestAnimationFrame(step);
+        }
+        animId = requestAnimationFrame(step);
+    }
+
+    function onPointerDown(e) {
+        if (grip || e.button !== 0) return;
+        const rect = root.getBoundingClientRect();
+        const scale = rect.width / (root.offsetWidth || rect.width) || 1;
+        cancelAnimationFrame(animId);
+        const dNow = Math.hypot(px, py);
+        const dClamped = Math.min(dNow, 0.95 * R);
+        const rawNow = dNow > 0.5 ? (R * dClamped) / (R - dClamped) : 0;
+        grip = {
+            id: e.pointerId,
+            startX: e.clientX,
+            startY: e.clientY,
+            scale,
+            moved: false,
+            hist: [],
+            rawOrigin: dNow > 0.5 ? { x: (rawNow * px) / dNow, y: (rawNow * py) / dNow } : { x: 0, y: 0 },
+            slop: e.pointerType === "touch" ? SLOP.coarse : SLOP.fine
+        };
+        try {
+            pad.setPointerCapture(e.pointerId);
+        } catch {}
+        pad.setAttribute("data-held", "");
+    }
+
+    function onPointerMove(e) {
+        if (!grip || grip.id !== e.pointerId) return;
+        const dx = (e.clientX - grip.startX) / grip.scale;
+        const dy = (e.clientY - grip.startY) / grip.scale;
+        let rx = grip.rawOrigin.x + dx;
+        let ry = grip.rawOrigin.y + dy;
+        if (!grip.moved && Math.hypot(dx, dy) > grip.slop) grip.moved = true;
+        const raw = Math.hypot(rx, ry);
+        if (raw < 0.01) return;
+        const d = (R * raw) / (R + raw);
+        const ux = rx / raw;
+        const uy = ry / raw;
+        dir = { ux, uy };
+        px = d * ux;
+        py = d * uy;
+        const t = performance.now();
+        grip.hist.push({ x: px, y: py, t });
+        while (grip.hist.length > 4 || t - grip.hist[0].t > 80) grip.hist.shift();
+        const armed = d >= ARM;
+        if (armed !== isArmed) {
+            isArmed = armed;
+            if (armed) {
+                root.setAttribute("data-armed", "");
+                pad.setAttribute("data-armed", "");
+            } else {
+                root.removeAttribute("data-armed");
+                pad.removeAttribute("data-armed");
+            }
+        }
+        paint();
+    }
+
+    function release(pointerId, cancelled) {
+        if (!grip || grip.id !== pointerId) return;
+        const g = grip;
+        grip = null;
+        skipClick = true;
+        try {
+            pad.releasePointerCapture(pointerId);
+        } catch {}
+
+        const d = Math.hypot(px, py);
+        const p = d / ARM;
+        const { ux, uy } = dir;
+        let vx = 0;
+        let vy = 0;
+        if (!cancelled && g.hist.length > 1) {
+            const a = g.hist[0];
+            const b = g.hist[g.hist.length - 1];
+            const dt = b.t - a.t;
+            if (dt > 0 && performance.now() - b.t < 50) {
+                vx = ((b.x - a.x) / dt) * 1000;
+                vy = ((b.y - a.y) / dt) * 1000;
+            }
+        }
+        const fm = Math.hypot(vx, vy);
+        if (fm > 3000) {
+            vx *= 3000 / fm;
+            vy *= 3000 / fm;
+        }
+
+        if (!g.moved) {
+            relaxIcon();
+            if (!cancelled) {
+                sendToTop();
+                launchDot();
+            }
+        } else {
+            const fire = isArmed && !cancelled;
+            const launch = fire ? launchSpeed * Math.min(p, 1.5) : 0.5 * launchSpeed * Math.min(p, 1);
+            let v0x = vx - ux * launch;
+            let v0y = vy - uy * launch;
+            const m = Math.hypot(v0x, v0y);
+            if (m > 6000) {
+                v0x *= 6000 / m;
+                v0y *= 6000 / m;
+            }
+            if (!fire) relaxIcon();
+            if (fire) {
+                sendToTop();
+                power = clamp((Math.min(p, 1.5) - 1) / 0.5, 0, 1);
+                setTimeout(launchDot, 120);
+            }
+            settle({ x: v0x, y: v0y });
+        }
+
+        isArmed = false;
+        root.removeAttribute("data-armed");
+        pad.removeAttribute("data-armed");
+        pad.removeAttribute("data-held");
+    }
+
+    pad.addEventListener("pointerdown", onPointerDown);
+    pad.addEventListener("pointermove", onPointerMove);
+    pad.addEventListener("pointerup", e => release(e.pointerId, false));
+    pad.addEventListener("pointercancel", e => release(e.pointerId, true));
+    pad.addEventListener("lostpointercapture", e => release(e.pointerId, true));
+    pad.addEventListener("keydown", e => {
+        if (e.key === "Escape" && grip) release(grip.id, true);
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            sendToTop();
+            launchDot();
+        }
+    });
+    pad.addEventListener("click", () => {
+        if (skipClick) {
+            skipClick = false;
+            return;
+        }
+        sendToTop();
+        launchDot();
+    });
+
+    paint();
+}
 
 
 // ━━━ 8. MOUNT AND EVENT LISTENERS ━━━
@@ -692,6 +1006,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initSquishyNavbar();
     initMouseSpotlight();
     initTiltEffect();
+    setupSlingBackToTop();
 
     window.addEventListener('scroll', animateProgressBars);
     animateProgressBars();
