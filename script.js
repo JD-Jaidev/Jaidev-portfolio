@@ -175,13 +175,13 @@ const projectCategories = ["All", "AI & ML", "Web Apps", "Tools & Systems"];
 
 const projects = [
     {
-        title: "AI Playground",
+        title: "TeamForge",
         category: "AI & ML",
-        desc: "A centralized platform bringing multiple AI projects into a unified interactive portal, allowing users to switch models and explore diverse AI-powered features with seamless execution.",
-        tags: ["HTML", "CSS", "JavaScript", "Vercel"],
-        img: "assets/AI-PLAYGROUND.png",
-        link: "https://github.com/JD-Jaidev/AI-PLAYGROUND",
-        siteLink: null
+        desc: "TeamForge is an AI-powered student collaboration platform that helps students discover teammates, match complementary skills, form project teams, and collaborate through intelligent matching in a unified workspace.",
+        tags: ["HTML, CSS, JS", "Python", "PostgreSQL", "Supabase", "AI (APIs)"],
+        img: "assets/TEAMFORGE.png",
+        link: "https://github.com/JD-Jaidev/TeamForgeProject",
+        siteLink: "https://team-forge-project.vercel.app/"
     },
     {
         title: "RAG Multi-Model PDF Analyzer",
@@ -192,6 +192,16 @@ const projects = [
         link: "https://github.com/JD-Jaidev/RAG-PDF-ANALYZER",
         siteLink: "https://ai-rag-pdf-analyzer.streamlit.app/"
     },
+    {
+        title: "AI Playground",
+        category: "AI & ML",
+        desc: "A centralized platform bringing multiple AI projects into a unified interactive portal, allowing users to switch models and explore diverse AI-powered features with seamless execution.",
+        tags: ["HTML", "CSS", "JavaScript", "Vercel"],
+        img: "assets/AI-PLAYGROUND.png",
+        link: "https://github.com/JD-Jaidev/AI-PLAYGROUND",
+        siteLink: null
+    },
+    
     {
         title: "AI Resume Analyzer with ATS Score",
         category: "AI & ML",
