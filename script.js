@@ -178,7 +178,7 @@ const projects = [
         title: "TeamForge",
         category: "AI & ML",
         desc: "TeamForge is an AI-powered student collaboration platform that helps students discover teammates, match complementary skills, form project teams, and collaborate through intelligent matching in a unified workspace.",
-        tags: ["HTML, CSS, JS", "Python", "PostgreSQL", "Supabase", "AI (APIs)"],
+        tags: ["HTML, CSS, JS", "Python", "PostgreSQL", "Supabase"],
         img: "assets/TEAMFORGE.png",
         link: "https://github.com/JD-Jaidev/TeamForgeProject",
         siteLink: "https://team-forge-project.vercel.app/"
