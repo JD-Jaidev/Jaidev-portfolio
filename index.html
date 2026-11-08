@@ -20,11 +20,55 @@
     
     <!-- Tailwind CSS for utility scaffolding -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css?v=3.2">
+    <link rel="stylesheet" href="style.css?v=4.5">
     <link rel="icon" href="https://emojifavicons.com/directhit">
 </head>
 
-<body class="selection:bg-[#FED7A5]/30 selection:text-[#FED7A5]">
+<body class="selection:bg-[#FED7A5]/30 selection:text-[#FED7A5] gate-locked">
+    <!-- ========================================================================================================= -->
+    <!-- ENTRANCE TICKET GATE OVERLAY (React Bits TearTicket Component) -->
+    <!-- ========================================================================================================= -->
+    <div id="ticket-gate-overlay" class="ticket-gate-overlay" role="dialog" aria-modal="true" aria-label="Entrance Admission Gate">
+        <!-- Ambient Background Mesh & Glows -->
+        <div class="ticket-gate-backdrop" aria-hidden="true">
+            <div class="ticket-gate-ambient-glow ticket-gate-ambient-glow--1"></div>
+            <div class="ticket-gate-ambient-glow ticket-gate-ambient-glow--2"></div>
+            <div class="ticket-gate-grid"></div>
+        </div>
+
+        <div class="ticket-gate-container">
+            <!-- Header Section -->
+            <div class="ticket-gate-header">
+                <div class="ticket-gate-pill">
+                    <span class="ticket-gate-pulse-dot"></span>
+                    <i class="fas fa-ticket-alt text-[#FED7A5]"></i>
+                    <span class="ticket-gate-pill-text">ADMISSION PASS REQUIRED</span>
+                </div>
+                <h1 class="ticket-gate-title">
+                    Welcome to <span class="text-gradient">Jaidev's</span> Portfolio
+                </h1>
+                <p class="ticket-gate-subtitle">
+                    Pull and tear off the stub to unlock the portfolio experience
+                </p>
+            </div>
+
+            <!-- TearTicket Viewport -->
+            <div class="ticket-gate-viewport">
+                <div id="entrance-tear-ticket" class="tear-ticket" data-orientation="horizontal" aria-label="Admission Ticket">
+                    <!-- Dynamic SVG geometry & interactive pieces populated by script.js -->
+                </div>
+            </div>
+
+            <!-- Footer / Direct Entry Action -->
+            <div class="ticket-gate-footer">
+                <button id="ticket-gate-enter-btn" type="button" class="ticket-gate-enter-btn" aria-label="Enter portfolio directly">
+                    <span>Enter Portfolio Directly</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Interactive Mouse Spotlight Aura -->
     <div id="mouse-spotlight"></div>
 
@@ -84,7 +128,7 @@
                 <div class="flex-1 max-w-2xl text-center lg:text-left">
                     <div class="hero-pill-badge">
                         <i class="fas fa-sparkles text-xs"></i>
-                        <span>Aspiring AI/ML Engineer</span>
+                        <span>Jaidev S  ●  Aspiring AI/ML Engineer</span>
                     </div>
 
                     <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.18] mb-6">
@@ -129,28 +173,15 @@
                     </div>
                 </div>
 
-                <!-- Profile Circle with 3D Orbit Animations -->
-                <div class="profile-container flex-shrink-0" id="hero-profile-container">
-                    <div class="orbit-ring orbit-ring-2"></div>
-                    <div class="orbit-ring orbit-ring-1"></div>
-
-                    <!-- Floating Badges with Dedicated Float Wrappers -->
-                    <div class="orbit-badge-wrap orbit-badge-wrap-1">
-                        <div class="orbit-badge orbit-badge-1">
-                            <i class="fas fa-graduation-cap text-[#FED7A5]"></i>
-                            <span>Student @ CIT</span>
-                        </div>
+                <!-- React Bits <Lanyard /> Interactive 3D Developer Pass -->
+                <div class="lanyard-hero-wrapper flex-shrink-0" id="hero-lanyard-wrapper">
+                    <img id="hero-lanyard-avatar" src="assets/prof-img.png" alt="Jaidev S" style="position:absolute;width:1px;height:1px;opacity:0.001;pointer-events:none;" />
+                    <div class="lanyard-hero-container" id="hero-lanyard-container">
+                        <div id="lanyard-canvas-container" class="lanyard" aria-label="3D Interactive Developer ID Lanyard Badge"></div>
                     </div>
-                    <div class="orbit-badge-wrap orbit-badge-wrap-2">
-                        <div class="orbit-badge orbit-badge-2">
-                            <i class="fas fa-brain text-[#8EE29D]"></i>
-                            <span>AI/ML Explorer</span>
-                        </div>
-                    </div>
-
-                    <!-- Avatar Orb -->
-                    <div class="profile-circle">
-                        <img src="assets/prof-img.png" alt="Profile photo of Jaidev S" loading="eager">
+                    <div class="lanyard-hint">
+                        <i class="fas fa-hand-pointer text-[#FED7A5] text-xs"></i>
+                        <span>Drag, swing or click badge to flip</span>
                     </div>
                 </div>
             </div>
@@ -199,6 +230,7 @@
                         <span>Core Competency Levels</span>
                     </h3>
                 </div>
+
                 <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto"></div>
             </div>
         </section>
@@ -221,20 +253,20 @@
                 </div>
 
                 <!-- Filter Category Tabs -->
-                <div id="project-filters" class="filter-wrapper"></div>
+                <div id="project-filters" class="filter-wrapper mb-8"></div>
 
-                <!-- Projects Grid -->
+                <!-- Projects Holo Grid -->
                 <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
             </div>
         </section>
 
         <!-- ========================================================================================================= -->
-        <!-- Journey Section -->
+        <!-- Journey Section (React Bits ScrollStack - Main Page Embedded) -->
         <!-- ========================================================================================================= -->
-        <section id="journey" class="py-24 px-4 sm:px-6 relative bg-[#1B1C25] border-t border-[#73766A]/20 overflow-hidden">
-            <div class="max-w-7xl mx-auto">
+        <section id="journey" class="py-24 px-4 sm:px-6 relative bg-[#1B1C25] border-t border-[#73766A]/20">
+            <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12">
-                    <span class="text-[#FED7A5] text-xs font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full bg-[#534145] border border-[#FED7A5]/25 inline-block">
+                    <span class="text-[#FED7A5] text-xs font-bold tracking-[0.2em] uppercase px-3.5 py-1 rounded-full bg-[#534145] border border-[#FED7A5]/25 inline-block">
                         Milestones & Experience
                     </span>
                     <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black mt-4">
@@ -244,7 +276,11 @@
                         Tracking my academic evolution from computer science fundamentals to cutting-edge Artificial Intelligence.
                     </p>
                 </div>
-                <div id="journey-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto"></div>
+
+                <!-- React Bits ScrollStack Embedded in Main Page Flow -->
+                <div id="journey-stack" class="scroll-stack scroll-stack--window" aria-label="Journey Milestones Stack">
+                    <div id="journey-grid" class="scroll-stack__inner"></div>
+                </div>
             </div>
         </section>
 
@@ -438,7 +474,7 @@
                         </div>
 
                         <button type="submit"
-                            class="hero-btn hero-btn-primary w-full !py-4 text-base font-bold squishy-hover flex items-center justify-center text-center text-[#20212B]"
+                            class="hero-btn hero-btn-primary w-full !py-4 !mt-7 sm:!mt-6 text-base font-bold squishy-hover flex items-center justify-center text-center text-[#20212B]"
                             style="width: 100% !important; max-width: 100% !important; display: flex !important; align-items: center !important; justify-content: center !important; text-align: center !important; color: #20212B !important; box-sizing: border-box !important;">
                             <i class="fas fa-paper-plane mr-2 text-[#20212B]" style="color: #20212B !important;"></i>
                             <span class="text-[#20212B] font-bold" style="color: #20212B !important;">Send Message</span>
@@ -506,6 +542,17 @@
         </span>
         <span class="sling-button__sr">Press Enter or pull down and release to go to top.</span>
     </div>
+
+    <!-- Three.js for 3D Lanyard Component -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <script>
+        if (typeof THREE === 'undefined') {
+            document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"><\\/script>');
+        }
+    </script>
+
+    <!-- Lanyard Avatar Data (Guarantees instant & offline zero-taint canvas rendering) -->
+    <script src="assets/avatar-data.js"></script>
 
     <!-- Application Script -->
     <script src="script.js"></script>
